@@ -5,12 +5,32 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="130cd0c3-8d2e-4988-95fa-49c6558f2047" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/README" beforeDir="false" afterPath="$PROJECT_DIR$/README" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/GUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Attacks.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Attacks.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CharClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CharClass.java" afterDir="false" />
+    </list>
+    <list id="09a05660-7842-4a40-995a-d937fbe07318" name="Changes by wcraw" comment="">
+      <change beforePath="$PROJECT_DIR$/src/CharClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CharClass.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Character.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Character.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Item.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Npc.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Npc.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/RPGRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/RPGRunner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Stats.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Stats.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
@@ -20,9 +40,19 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 3
-}]]></component>
+  <component name="LineStatusTrackerManager">
+    <file path="$PROJECT_DIR$/src/CharClass.java">
+      <ranges>
+        <range start1="0" end1="0" start2="0" end2="2" changelist="09a05660-7842-4a40-995a-d937fbe07318" />
+        <range start1="7" end1="7" start2="9" end2="10" changelist="09a05660-7842-4a40-995a-d937fbe07318" />
+        <range start1="30" end1="30" start2="33" end2="39" changelist="130cd0c3-8d2e-4988-95fa-49c6558f2047" />
+        <range start1="40" end1="40" start2="49" end2="57" changelist="09a05660-7842-4a40-995a-d937fbe07318" />
+      </ranges>
+    </file>
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 3
+}</component>
   <component name="ProjectId" id="2sYO9BrlhWRF6bMvKPvLyv5AkZM" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -30,11 +60,12 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Application.RPGRunner.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "will",
+    "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/ockoe/Documents/NWTC/Java Part 2/Group_Game/Main/TextBasedRPG",
+    "last_opened_file_path": "C:/Users/ockoe/Documents/NWTC/Java Part 2/Final/TextBasedRPG",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -60,6 +91,7 @@
       <option name="presentableId" value="Default" />
       <updated>1738628887140</updated>
       <workItem from="1738628888244" duration="481000" />
+      <workItem from="1739221157286" duration="6505000" />
     </task>
     <servers />
   </component>

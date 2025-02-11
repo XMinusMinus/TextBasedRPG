@@ -39,12 +39,15 @@ public abstract class Npc {
      */
     private HashMap<String, String> dialogue;
 
-    public Npc(String name, String description, Boolean isPassive, Stats stats, HashMap<String, String> dialogue) {
+    public Npc(String name, String description, Boolean isPassive
+               //Stats stats,
+               //HashMap<String, String> dialogue
+               ) {
         this.name = name;
         this.description = description;
         this.isPassive = isPassive;
         this.stats = stats;
-        this.dialogue = dialogue;
+      //  this.dialogue = dialogue;
     }
 
     //region Name Get/Sets
@@ -142,6 +145,13 @@ public abstract class Npc {
      * Gets the dialogue HashMap.
      * @return The dialogue HashMap.
      */
+    public double getStat(String statName) {
+        return stats.getStat(statName);
+    }
+
+    public void setStat(String statName, double value) {
+        stats.setStat(statName, value);
+    }
     public HashMap<String, String> GetAllDialogue()
     {
         return dialogue;

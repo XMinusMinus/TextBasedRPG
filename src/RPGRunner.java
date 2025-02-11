@@ -1,18 +1,23 @@
 import java.time.DateTimeException;
+import java.time.Instant;
 import java.util.MissingResourceException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import java.util.HashMap;
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
-public class RPGRunner {
+public class RPGRunner  {
+
     public final static Logger log = LogManager.getLogger(RPGRunner.class.getName());
     public static void main(String[] args) {
       try{
 
-          log.debug("Hello World");
-          log.info("Hello World Two");
-          System.out.println("everything works");
-
+          CharClass player = new CharClass("Hero", Professions.POTION_MAKER, 100);
+          Npc npc = new Npc("Goblin","a small green monster",false) {};
+          Attacks potionThrow = new Attacks(AttackTypes.RANGED, "Potion Throw", 10);
+          player.;
+          CommandRunner game = new CommandRunner(player, npc);
+          game.run();
       }
       catch(ArrayStoreException exception){
           System.err.println("Error: Trying to store the wrong data type in an array");

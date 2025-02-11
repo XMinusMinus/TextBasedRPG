@@ -30,4 +30,6 @@ public class Item {
     public boolean isItemConsumable() {
         return this.isConsumable;
     }
+
+    public String getItemName(){return this.name;}
 }

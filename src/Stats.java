@@ -1,17 +1,28 @@
 import java.util.HashMap;
 import java.util.Map;
 
-public abstract class Stats {
-private final Map<String, Double> stats = new HashMap<>();
+public class Stats {
+    private HashMap<String, Double> stats;
 
-public void setStat(String statName, double value ) {
- stats.put(statName, value);
-}
-public double getStat(String statName) {
-    return stats.get(statName);
-}
-public boolean hasStat(String statName){
-    return stats.containsKey(statName);
-}
+    public Stats() {
+        this.stats = new HashMap<>();
+    }
+
+    public double getStat(String statName) {
+        return stats.getOrDefault(statName, 0.0);
+    }
+
+    public void setStat(String statName, double value) {
+        stats.put(statName, value);
+    }
+
+    public void modifyStat(String statName, double amount) {
+        stats.put(statName, getStat(statName) + amount);
+    }
+
+    @Override
+    public String toString() {
+        return stats.toString();
+    }
 
 }

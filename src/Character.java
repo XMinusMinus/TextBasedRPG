@@ -1,15 +1,15 @@
+import java.util.ArrayList;
+import java.util.List;
 public abstract class Character {
     private String name;
     private Professions profession;
     private Stats stats;
-
+    private List<Item> inventory;
     public Character(String name, Professions professions, int charMaxStanima){
         this.name = name;
         this.profession = professions;
         this.stats = new Stats() {};
-    }
-    public double getStats(String statName) {
-        return stats.getStat(statName);
+        this.inventory = new ArrayList<>();
     }
 
     public String GetName()
@@ -22,6 +22,24 @@ public abstract class Character {
         return profession;
     }
 
+    public double getStat(String statName) {
+        return stats.getStat(statName);
+    }
 
+    public void setStat(String statName, double value) {
+        stats.setStat(statName, value);
+    }
+
+    public void addItem(Item item) {
+        inventory.add(item);
+    }
+
+    public void removeItem(Item item) {
+        inventory.remove(item);
+    }
+
+    public List<Item> getInventory() {
+        return inventory;
+    }
 
 }

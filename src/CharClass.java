@@ -1,3 +1,5 @@
+import java.util.List;
+
 public class CharClass extends Character{
     private Stats stats;
     private String[] backpack = new String[32];
@@ -5,6 +7,7 @@ public class CharClass extends Character{
     private ClassTypes classType;
     private int charStanima;
     private int charMaxStanima;
+    private List<Item> inventory;
 
     public CharClass(String name, Professions profession, int charMaxStanima) {
 
@@ -28,6 +31,12 @@ public class CharClass extends Character{
             return super.GetName() + " Does not have stamina for this move";
         }
     }
+
+    public Attacks[] getAttacks()
+    {
+        return attacks;
+    }
+
     public int getcharStanima(){
         return this.charStanima;
     }
@@ -36,6 +45,14 @@ public class CharClass extends Character{
     }
     public void setStanima(int deduction){
          this.charStanima = this.charStanima - deduction;
+    }
+
+    public void addItem(Item item) {
+        inventory.add(item);
+    }
+
+    public List<Item> getInventory() {
+        return inventory;
     }
 
     public void ChooseDialogOption(int option){

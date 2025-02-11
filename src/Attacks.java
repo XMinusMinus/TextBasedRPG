@@ -26,4 +26,9 @@ public class Attacks {
         return this.attackStanUsage;
     }
 
+    public String getAttackName()
+    {
+        return this.attackName;
+    }
+
 }
