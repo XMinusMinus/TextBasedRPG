@@ -10,7 +10,7 @@ public class GUI {
         String displayMessage = "[-------------AVAILABLE ATTACKS-------------]\n";
         for (int i = 0; i < attacks.length; i++)
         {
-            displayMessage += "\n" + (i + 1) + attacks[i];
+            displayMessage += "\n" + (i + 1) + ". " + attacks[i].getAttackName();
         }
 
         displayMessage += "\n[^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^]";
@@ -37,6 +37,9 @@ public class GUI {
                 "Name: " + character.GetName() + "\n" +
                 "Profession: " + character.GetProfession() + "\n" +
                 "Stamina: " + character.getcharStanima() + "/" + character.getcharMaxStanima() + "\n" +
+                "HP: " + character.getStat("HP") + "\n" +
+                "Attack: " + character.getStat("Attack") + "\n" +
+                "Defense: " + character.getStat("Defense") + "\n" +
                 "[^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^]";
     }
 
@@ -60,7 +63,22 @@ public class GUI {
         return "[-------------NPC STATS-------------]\n" +
                 "Name: " + npc.GetName() + "\n" +
                 "Description: " + npc.GetDescription() + "\n" +
+                "HP: " + npc.getStat("HP") + "\n" +
+                "Attack: " + npc.getStat("Attack") + "\n" +
+                "Defense: " + npc.getStat("Defense") + "\n" +
                 "[^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^]";
+    }
+
+    public void displayItems(CharClass character) {
+        System.out.println("Inventory:");
+        List<Item> inventory = character.getInventory();
+        if (inventory.isEmpty()) {
+            System.out.println(" - No items in inventory.");
+        } else {
+            for (Item item : inventory) {
+                System.out.println(" - " + item.getItemName() + " (Amount: " + item.getItemAmount() + ")");
+            }
+        }
     }
 
 

@@ -5,10 +5,11 @@ public abstract class Character {
     private Professions profession;
     private Stats stats;
     private List<Item> inventory;
-    public Character(String name, Professions professions, int charMaxStanima){
+
+    public Character(String name, Professions professions, int charMaxStanima, Stats stats){
         this.name = name;
         this.profession = professions;
-        this.stats = new Stats() {};
+        this.stats = stats;
         this.inventory = new ArrayList<>();
     }
 

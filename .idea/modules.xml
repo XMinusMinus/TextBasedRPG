@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/RPG_GameEngine.iml" filepath="$PROJECT_DIR$/RPG_GameEngine.iml" />
+      <module fileurl="file://$PROJECT_DIR$/TextBasedRPG.iml" filepath="$PROJECT_DIR$/TextBasedRPG.iml" />
     </modules>
   </component>
 </project>

@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.List;
 
 public class CharClass extends Character{
@@ -6,12 +7,14 @@ public class CharClass extends Character{
     private Attacks[] attacks = new Attacks[5];
     private ClassTypes classType;
     private int charStanima;
-    private int charMaxStanima;
+    private int charMaxStamina;
     private List<Item> inventory;
 
-    public CharClass(String name, Professions profession, int charMaxStanima) {
+    public CharClass(String name, Professions profession, int charMaxStamina, Stats stats, Attacks[] attacks) {
 
-        super(name, profession, charMaxStanima);
+        super(name, profession, charMaxStamina, stats);
+        this.inventory = new ArrayList<>();
+        this.attacks = attacks;
     }
 
     @Override
@@ -41,7 +44,7 @@ public class CharClass extends Character{
         return this.charStanima;
     }
     public int getcharMaxStanima(){
-        return this.charMaxStanima;
+        return this.charMaxStamina;
     }
     public void setStanima(int deduction){
          this.charStanima = this.charStanima - deduction;

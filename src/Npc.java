@@ -39,15 +39,12 @@ public abstract class Npc {
      */
     private HashMap<String, String> dialogue;
 
-    public Npc(String name, String description, Boolean isPassive
-               //Stats stats,
-               //HashMap<String, String> dialogue
-               ) {
+    public Npc(String name, String description, Boolean isPassive,Stats stats,HashMap<String, String> dialogue) {
         this.name = name;
         this.description = description;
         this.isPassive = isPassive;
         this.stats = stats;
-      //  this.dialogue = dialogue;
+        this.dialogue = dialogue;
     }
 
     //region Name Get/Sets

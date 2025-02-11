@@ -4,19 +4,43 @@ import java.util.MissingResourceException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import java.util.HashMap;
+
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class RPGRunner  {
 
     public final static Logger log = LogManager.getLogger(RPGRunner.class.getName());
     public static void main(String[] args) {
-      try{
+      try {
+          Attacks[] attacks = new Attacks[]{
+                  new Attacks(AttackTypes.RANGED, "Potion Throw", 10),
+                  new Attacks(AttackTypes.RANGED, "Knife Throw", 11),
+                  new Attacks(AttackTypes.RANGED, "Slingshot", 12),
+                  new Attacks(AttackTypes.RANGED, "Rock Throw", 13),
+                  new Attacks(AttackTypes.RANGED, "Spear Throw", 14)
+          };
 
-          CharClass player = new CharClass("Hero", Professions.POTION_MAKER, 100);
-          Npc npc = new Npc("Goblin","a small green monster",false) {};
-          Attacks potionThrow = new Attacks(AttackTypes.RANGED, "Potion Throw", 10);
-          player.;
-          CommandRunner game = new CommandRunner(player, npc);
+          CharClass player;
+          Stats npcStats = new Stats();
+          npcStats.setStat("HP", 100);
+          npcStats.setStat("Attack", 10);
+          npcStats.setStat("Defense", 25);
+          npcStats.setStat("Magic Power", 0);
+          Stats playerStats = new Stats();
+          playerStats.setStat("HP", 100);
+          playerStats.setStat("Attack", 20);
+          playerStats.setStat("Defense", 30);
+          playerStats.setStat("Magic Power", 10);
+          playerStats.setStat("Stamina", 100);
+          player = new CharClass("Hero", Professions.POTION_MAKER, 100, playerStats, attacks);
+          Npc guard = new Npc("Guard", "A strong warrior", false, npcStats, new HashMap<>()) {};
+
+          // Adding items to the player
+          Item healthPotion = new Item("Health Potion", 1, 0.5, 50, true);
+          Item ironSword = new Item("Iron Sword", 1, 5.0, 100, false);
+          player.addItem(healthPotion);
+          player.addItem(ironSword);
+          CommandRunner game = new CommandRunner(player, guard);
           game.run();
       }
       catch(ArrayStoreException exception){
