@@ -1,41 +1,91 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="4b38f56b-8c14-4f18-b3aa-ad5838bcb0d0" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/logging/log4j2-test.txt" beforeDir="false" afterPath="$PROJECT_DIR$/logging/log4j2-test.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logging/log4j2-test.xml" beforeDir="false" afterPath="$PROJECT_DIR$/logging/log4j2-test.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AttackTypes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AttackTypes.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Floor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ItemDropChance.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NPCType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/WorldType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/World.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/World.java" afterDir="false" />
+    </list>
+    <list id="997673c5-e699-4248-88ea-2cebfabc44cb" name="Changes by Adam Bluma" comment="">
+      <change beforePath="$PROJECT_DIR$/src/CharClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CharClass.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CommandRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CommandRunner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Item.java" afterDir="false" />
+    </list>
+    <list id="6fe56170-8318-41fe-9a49-dd3757e0ef16" name="Changes by wcraw" comment="">
       <change beforePath="$PROJECT_DIR$/src/Attacks.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Attacks.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/CharClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CharClass.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Character.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Character.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ClassTypes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClassTypes.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/CommandRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CommandRunner.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Effects.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Effects.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Item.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Npc.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Npc.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Professions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Professions.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/RPGInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/RPGInterface.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/RPGRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/RPGRunner.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Stats.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Stats.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/World.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/World.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Enum" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "customColor": "",
-  "associatedIndex": 3
-}]]></component>
+  <component name="LineStatusTrackerManager">
+    <file path="$PROJECT_DIR$/src/CharClass.java">
+      <ranges>
+        <range start1="29" end1="29" start2="29" end2="32" changelist="6fe56170-8318-41fe-9a49-dd3757e0ef16" />
+        <range start1="30" end1="31" start2="33" end2="34" changelist="6fe56170-8318-41fe-9a49-dd3757e0ef16" />
+        <range start1="42" end1="44" start2="45" end2="47" changelist="6fe56170-8318-41fe-9a49-dd3757e0ef16" />
+        <range start1="45" end1="47" start2="48" end2="50" changelist="6fe56170-8318-41fe-9a49-dd3757e0ef16" />
+        <range start1="59" end1="59" start2="62" end2="67" changelist="997673c5-e699-4248-88ea-2cebfabc44cb" />
+      </ranges>
+    </file>
+    <file path="$PROJECT_DIR$/src/GUI.java">
+      <ranges>
+        <range start1="2" end1="2" start2="2" end2="3" changelist="997673c5-e699-4248-88ea-2cebfabc44cb" />
+        <range start1="20" end1="20" start2="21" end2="57" changelist="997673c5-e699-4248-88ea-2cebfabc44cb" />
+        <range start1="21" end1="22" start2="58" end2="59" changelist="6fe56170-8318-41fe-9a49-dd3757e0ef16" />
+        <range start1="60" end1="60" start2="97" end2="117" changelist="997673c5-e699-4248-88ea-2cebfabc44cb" />
+      </ranges>
+    </file>
+    <file path="$PROJECT_DIR$/src/Item.java">
+      <ranges>
+        <range start1="7" end1="7" start2="7" end2="9" changelist="997673c5-e699-4248-88ea-2cebfabc44cb" />
+        <range start1="9" end1="10" start2="11" end2="12" changelist="6fe56170-8318-41fe-9a49-dd3757e0ef16" />
+        <range start1="15" end1="15" start2="17" end2="19" changelist="6fe56170-8318-41fe-9a49-dd3757e0ef16" />
+        <range start1="33" end1="33" start2="37" end2="43" changelist="6fe56170-8318-41fe-9a49-dd3757e0ef16" />
+        <range start1="34" end1="34" start2="44" end2="48" changelist="997673c5-e699-4248-88ea-2cebfabc44cb" />
+      </ranges>
+    </file>
+    <file path="$PROJECT_DIR$/src/CommandRunner.java">
+      <ranges>
+        <range start1="6" end1="6" start2="6" end2="7" changelist="6fe56170-8318-41fe-9a49-dd3757e0ef16" />
+        <range start1="7" end1="8" start2="8" end2="9" changelist="6fe56170-8318-41fe-9a49-dd3757e0ef16" />
+        <range start1="11" end1="11" start2="12" end2="13" changelist="6fe56170-8318-41fe-9a49-dd3757e0ef16" />
+        <range start1="21" end1="21" start2="23" end2="26" changelist="997673c5-e699-4248-88ea-2cebfabc44cb" />
+        <range start1="26" end1="26" start2="31" end2="36" changelist="997673c5-e699-4248-88ea-2cebfabc44cb" />
+        <range start1="47" end1="47" start2="57" end2="59" changelist="6fe56170-8318-41fe-9a49-dd3757e0ef16" />
+      </ranges>
+    </file>
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 3
+}</component>
   <component name="ProjectId" id="2sujz16TKOFqdVfgOquopg1u1P2" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -49,7 +99,14 @@
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/ockoe/Documents/NWTC/Java Part 2/Final/TextBasedRPG",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -70,6 +127,7 @@
       <option name="presentableId" value="Default" />
       <updated>1739312614337</updated>
       <workItem from="1739312615523" duration="31000" />
+      <workItem from="1739574184877" duration="13886000" />
     </task>
     <servers />
   </component>

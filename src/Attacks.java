@@ -3,13 +3,15 @@ public class Attacks {
     private String attackName;
     private int baseDamage;
     private int attackStanUsage;
+    private double attackAccuracy;
 
 
-    public Attacks(AttackTypes attackType, String attackName, int attackStanUsage)
+    public Attacks(AttackTypes attackType, String attackName, int baseDamage, double attackAccuracy)
     {
         this.attackType = attackType;
         this.attackName = attackName;
-        this.attackStanUsage = attackStanUsage;
+        this.baseDamage = baseDamage;
+        this.attackAccuracy = attackAccuracy;
     }
 
     public int getBaseDamage()
@@ -30,5 +32,9 @@ public class Attacks {
     {
         return this.attackName;
     }
+
+    public int getAttackBaseDamage() {return this.baseDamage;}
+
+    public double getAttackAccuracy() {return this.attackAccuracy;}
 
 }

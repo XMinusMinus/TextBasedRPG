@@ -3,7 +3,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Random;
 
-public abstract class Npc {
+public class Npc {
     /**
      * The name of the NPC.
      */
@@ -39,12 +39,15 @@ public abstract class Npc {
      */
     private HashMap<String, String> dialogue;
 
-    public Npc(String name, String description, Boolean isPassive,Stats stats,HashMap<String, String> dialogue) {
+    private Attacks[] attacks = new Attacks[5];
+
+    public Npc(String name, String description, Boolean isPassive,Stats stats,HashMap<String, String> dialogue,Attacks[] attacks) {
         this.name = name;
         this.description = description;
         this.isPassive = isPassive;
         this.stats = stats;
         this.dialogue = dialogue;
+        this.attacks = attacks;
     }
 
     //region Name Get/Sets
@@ -205,5 +208,23 @@ public abstract class Npc {
         return output;
     }
     //endregion
+    public String Attack(Attacks attack, CharClass target)
+    {
+            double damage = attack.getBaseDamage();
+            double plyCurrentHP = target.getStat("HP");
+            double afterAttack = plyCurrentHP - damage;
+            target.setStat("HP",afterAttack);
+            return GetName() +" used "+ attack.toString() + " which did " + damage + " to " + target.toString();
+    }
+    public Attacks[] getAttacks()
+    {
+        return attacks;
+    }
 
+    public void choseRandomAttack(CharClass target){
+        Attacks[] attacks = getAttacks();
+        Random rand = new Random();
+        int index = rand.nextInt(attacks.length);
+        Attack(attacks[index],target);
+    }
 }

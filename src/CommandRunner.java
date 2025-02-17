@@ -4,11 +4,13 @@ public class CommandRunner implements RPGInterface{
     private GUI gui;
     private CharClass player;
     private Npc npc;
+    private World world;
 
-    public CommandRunner(CharClass player, Npc npc) {
+    public CommandRunner(CharClass player, Npc npc, World world) {
         this.gui = new GUI();
         this.player = player;
         this.npc = npc;
+        this.world = world;
     }
 
     @Override
@@ -19,11 +21,19 @@ public class CommandRunner implements RPGInterface{
     @Override
     public void displayAttacks(CharClass character) {
         System.out.println(gui.DisplayMoveChoices(character));
+
+        //character.Attack(gui.MakeMoveChoice(character), );
+
     }
 
     @Override
     public void displayItems(CharClass character) {
         System.out.println(gui.DisplayInventory(character));
+        Item itemToUse = gui.GetItemFromInventory(character);
+        if (itemToUse.isItemConsumable()) {
+            // remove 1 from item total in inv
+        }
+        itemToUse.UseItem();
     }
 
     @Override
@@ -45,6 +55,8 @@ public class CommandRunner implements RPGInterface{
                     break;
                 case "attacks":
                     displayAttacks(player);
+                    npc.choseRandomAttack(player);
+                    gui.BattleCaculation(npc,player,world);
                     break;
                 case "items":
                     displayItems(player);

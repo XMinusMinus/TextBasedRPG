@@ -13,11 +13,18 @@ public class RPGRunner  {
     public static void main(String[] args) {
       try {
           Attacks[] attacks = new Attacks[]{
-                  new Attacks(AttackTypes.RANGED, "Potion Throw", 10),
-                  new Attacks(AttackTypes.RANGED, "Knife Throw", 11),
-                  new Attacks(AttackTypes.RANGED, "Slingshot", 12),
-                  new Attacks(AttackTypes.RANGED, "Rock Throw", 13),
-                  new Attacks(AttackTypes.RANGED, "Spear Throw", 14)
+                  new Attacks(AttackTypes.RANGED, "Potion Throw", 10, 1),
+                  new Attacks(AttackTypes.RANGED, "Knife Throw", 11,1),
+                  new Attacks(AttackTypes.RANGED, "Slingshot", 12, 1),
+                  new Attacks(AttackTypes.RANGED, "Rock Throw", 13, 1),
+                  new Attacks(AttackTypes.RANGED, "Spear Throw", 14, 1)
+          };
+          Attacks[] npcattacks = new Attacks[]{
+                  new Attacks(AttackTypes.RANGED, "Potion Throw", 10, 1),
+                  new Attacks(AttackTypes.RANGED, "Knife Throw", 11,1),
+                  new Attacks(AttackTypes.RANGED, "Slingshot", 12, 1),
+                  new Attacks(AttackTypes.RANGED, "Rock Throw", 13, 1),
+                  new Attacks(AttackTypes.RANGED, "Spear Throw", 14, 1)
           };
 
           CharClass player;
@@ -28,19 +35,35 @@ public class RPGRunner  {
           npcStats.setStat("Magic Power", 0);
           Stats playerStats = new Stats();
           playerStats.setStat("HP", 100);
+          playerStats.setStat("MAXHP", 100);
           playerStats.setStat("Attack", 20);
           playerStats.setStat("Defense", 30);
           playerStats.setStat("Magic Power", 10);
-          playerStats.setStat("Stamina", 100);
+          playerStats.setStat("Stanima", 100);
+          playerStats.setStat("StanimaMax", 100);
           player = new CharClass("Hero", Professions.POTION_MAKER, 100, playerStats, attacks);
-          Npc guard = new Npc("Guard", "A strong warrior", false, npcStats, new HashMap<>()) {};
+          Npc guard = new Npc("Guard", "A strong warrior", false, npcStats, new HashMap<String, String>(){}, npcattacks);
 
           // Adding items to the player
-          Item healthPotion = new Item("Health Potion", 1, 0.5, 50, true);
-          Item ironSword = new Item("Iron Sword", 1, 5.0, 100, false);
+          Item healthPotion = new Item("Health Potion", 1, 0.5, 50, true, false,false);
+          Item ironSword = new Item("Iron Sword", 1, 5.0, 100, false, true, true);
           player.addItem(healthPotion);
           player.addItem(ironSword);
-          CommandRunner game = new CommandRunner(player, guard);
+
+          // Npcs for world 1
+          Npc[] npcs = new Npc[]{
+                  guard
+          };
+
+          //Floors for world 1
+          Floor[] floors = new Floor[]{
+                  new Floor(npcs)
+          };
+
+          //instantiation of world 1
+          World world1 = new World(player, 1, floors,false, WorldType.NORMAL);
+
+          CommandRunner game = new CommandRunner(player, guard, world1);
           game.run();
       }
       catch(ArrayStoreException exception){

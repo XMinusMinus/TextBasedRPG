@@ -27,8 +27,11 @@ public class CharClass extends Character{
         if(getcharStanima() >= attack.getAttackStanUsage()) {
             double damage = attack.getBaseDamage() * this.classType.getDamageMultiplier(attack.getAttackType());
             setStanima(attack.getAttackStanUsage());
+            double npcCurrentHP = target.getStat("HP");
+            double afterAttack = npcCurrentHP - damage;
+            target.setStat("HP",afterAttack);
             //target.TakeDamage(damage, attack.getAttackType());
-            return attack.toString() + " did " + damage + " to " + target.toString();
+            return super.GetName() +" used "+ attack.toString() + " which did " + damage + " to " + target.toString();
         }
         else{
             return super.GetName() + " Does not have stamina for this move";
@@ -40,11 +43,11 @@ public class CharClass extends Character{
         return attacks;
     }
 
-    public int getcharStanima(){
-        return this.charStanima;
+    public double getcharStanima(){
+        return getStat("Stanima");
     }
-    public int getcharMaxStanima(){
-        return this.charMaxStamina;
+    public double getcharMaxStanima(){
+        return getStat("StanimaMax");
     }
     public void setStanima(int deduction){
          this.charStanima = this.charStanima - deduction;
@@ -56,6 +59,11 @@ public class CharClass extends Character{
 
     public List<Item> getInventory() {
         return inventory;
+    }
+    public Item getItemFromInventory() {
+
+        // currently returns first item from inventory, this is temp
+        return inventory.getFirst();
     }
 
     public void ChooseDialogOption(int option){

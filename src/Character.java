@@ -39,6 +39,8 @@ public abstract class Character {
         inventory.remove(item);
     }
 
+    public void equipItem(Item item) {}
+
     public List<Item> getInventory() {
         return inventory;
     }

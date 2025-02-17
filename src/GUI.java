@@ -1,5 +1,6 @@
 
 import java.util.List;
+import java.util.Scanner;
 public class GUI {
 
     //Display moves in output
@@ -18,8 +19,44 @@ public class GUI {
         return displayMessage;
     }
 
+    // call this after DisplayMoveChoices
+    public Attacks MakeMoveChoice(CharClass character)
+    {
+        Attacks[] attacks = character.getAttacks();
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Please choose an attack.");
+        System.out.println("Input the number of the attack you wish to use.");
+        int input = scanner.nextInt();
+
+        // validate input
+        // if its less than 1 or more than the attack length, call them out and retry
+        if (input > attacks.length || input < 1) {
+            System.out.println("Sorry, that attack doesn't exist.");
+            MakeMoveChoice(character);
+        }
+        // subtract input by 1 to account for how attacks are shown
+        input = input - 1;
+
+        return attacks[input];
+    }
+    public void BattleCaculation(Npc npc, CharClass character, World world){
+        if(npc.GetIsPassive() == true){
+            world.AdvanceFloor();
+        }
+        else if(npc.GetIsPassive() == false && npc.getStat("HP") <= 0){
+            world.AdvanceFloor();
+        }
+        else if(character.getStat("HP") <= 0){
+            System.out.println("You Blacked out!");
+            character.setStat("HP", character.getStat("MAXHP"));
+            world.GameLossFloorReset();
+        }
+
+    }
+
     //Display damages dealt
-    public String DisplayDamageDealt(Npc target, double damageDealt)
+    public String DisplayDamageDealt(Npc target, double damageDealt, CharClass character)
     {
         String displayMessage = "[-------------DAMAGE DEALT-------------]\n";
 
@@ -57,6 +94,26 @@ public class GUI {
 
         displayMessage.append("\n[^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^]");
         return displayMessage.toString();
+    }
+
+    public Item GetItemFromInventory(CharClass character) {
+        List<Item> items = character.getInventory();
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Please choose an item.");
+        System.out.println("Input the number of the item you wish to use.");
+        int input = scanner.nextInt();
+
+        // validate input
+        // if its less than 1 or more than the item length, call them out and retry
+        if (input > items.size() || input < 1) {
+            System.out.println("Sorry, that attack doesn't exist.");
+            MakeMoveChoice(character);
+        }
+        // subtract input by 1 to account for how items are shown
+        input = input - 1;
+
+        return items.get(input);
     }
 
     public String DisplayNPCStats(Npc npc) {
