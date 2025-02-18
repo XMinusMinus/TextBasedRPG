@@ -5,27 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4b38f56b-8c14-4f18-b3aa-ad5838bcb0d0" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Floor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ItemDropChance.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/NPCType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/WorldType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/resources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/resources.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/World.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/World.java" afterDir="false" />
-    </list>
-    <list id="997673c5-e699-4248-88ea-2cebfabc44cb" name="Changes by Adam Bluma" comment="">
-      <change beforePath="$PROJECT_DIR$/src/CharClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CharClass.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CommandRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CommandRunner.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Item.java" afterDir="false" />
-    </list>
-    <list id="6fe56170-8318-41fe-9a49-dd3757e0ef16" name="Changes by wcraw" comment="">
+      <change beforePath="$PROJECT_DIR$/TextBasedRPG.iml" beforeDir="false" afterPath="$PROJECT_DIR$/TextBasedRPG.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Attacks.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Attacks.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/CharClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CharClass.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Character.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Character.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Npc.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Npc.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/RPGRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/RPGRunner.java" afterDir="false" />
+    </list>
+    <list id="7aacee84-f90e-45d0-b6f9-5c6c5b6888ed" name="Changes by Adam Bluma" comment="" />
+    <list id="6fe56170-8318-41fe-9a49-dd3757e0ef16" name="Changes by wcraw" comment="">
       <change beforePath="$PROJECT_DIR$/src/CommandRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CommandRunner.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Item.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Npc.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Npc.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/RPGInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/RPGInterface.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/RPGRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/RPGRunner.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -45,40 +37,13 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="LineStatusTrackerManager">
-    <file path="$PROJECT_DIR$/src/CharClass.java">
+    <file path="$PROJECT_DIR$/src/RPGRunner.java">
       <ranges>
-        <range start1="29" end1="29" start2="29" end2="32" changelist="6fe56170-8318-41fe-9a49-dd3757e0ef16" />
-        <range start1="30" end1="31" start2="33" end2="34" changelist="6fe56170-8318-41fe-9a49-dd3757e0ef16" />
-        <range start1="42" end1="44" start2="45" end2="47" changelist="6fe56170-8318-41fe-9a49-dd3757e0ef16" />
-        <range start1="45" end1="47" start2="48" end2="50" changelist="6fe56170-8318-41fe-9a49-dd3757e0ef16" />
-        <range start1="59" end1="59" start2="62" end2="67" changelist="997673c5-e699-4248-88ea-2cebfabc44cb" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/src/GUI.java">
-      <ranges>
-        <range start1="2" end1="2" start2="2" end2="3" changelist="997673c5-e699-4248-88ea-2cebfabc44cb" />
-        <range start1="20" end1="20" start2="21" end2="57" changelist="997673c5-e699-4248-88ea-2cebfabc44cb" />
-        <range start1="21" end1="22" start2="58" end2="59" changelist="6fe56170-8318-41fe-9a49-dd3757e0ef16" />
-        <range start1="60" end1="60" start2="97" end2="117" changelist="997673c5-e699-4248-88ea-2cebfabc44cb" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/src/Item.java">
-      <ranges>
-        <range start1="7" end1="7" start2="7" end2="9" changelist="997673c5-e699-4248-88ea-2cebfabc44cb" />
-        <range start1="9" end1="10" start2="11" end2="12" changelist="6fe56170-8318-41fe-9a49-dd3757e0ef16" />
-        <range start1="15" end1="15" start2="17" end2="19" changelist="6fe56170-8318-41fe-9a49-dd3757e0ef16" />
-        <range start1="33" end1="33" start2="37" end2="43" changelist="6fe56170-8318-41fe-9a49-dd3757e0ef16" />
-        <range start1="34" end1="34" start2="44" end2="48" changelist="997673c5-e699-4248-88ea-2cebfabc44cb" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/src/CommandRunner.java">
-      <ranges>
-        <range start1="6" end1="6" start2="6" end2="7" changelist="6fe56170-8318-41fe-9a49-dd3757e0ef16" />
-        <range start1="7" end1="8" start2="8" end2="9" changelist="6fe56170-8318-41fe-9a49-dd3757e0ef16" />
-        <range start1="11" end1="11" start2="12" end2="13" changelist="6fe56170-8318-41fe-9a49-dd3757e0ef16" />
-        <range start1="21" end1="21" start2="23" end2="26" changelist="997673c5-e699-4248-88ea-2cebfabc44cb" />
-        <range start1="26" end1="26" start2="31" end2="36" changelist="997673c5-e699-4248-88ea-2cebfabc44cb" />
-        <range start1="47" end1="47" start2="57" end2="59" changelist="6fe56170-8318-41fe-9a49-dd3757e0ef16" />
+        <range start1="2" end1="2" start2="2" end2="4" changelist="4b38f56b-8c14-4f18-b3aa-ad5838bcb0d0" />
+        <range start1="28" end1="28" start2="30" end2="31" changelist="6fe56170-8318-41fe-9a49-dd3757e0ef16" />
+        <range start1="29" end1="29" start2="32" end2="33" changelist="6fe56170-8318-41fe-9a49-dd3757e0ef16" />
+        <range start1="31" end1="35" start2="35" end2="56" changelist="4b38f56b-8c14-4f18-b3aa-ad5838bcb0d0" />
+        <range start1="36" end1="45" start2="57" end2="83" changelist="4b38f56b-8c14-4f18-b3aa-ad5838bcb0d0" />
       </ranges>
     </file>
   </component>
@@ -91,25 +56,26 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.RPGRunner.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/ockoe/Documents/NWTC/Java Part 2/Final/TextBasedRPG",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.DatabaseLoad.executor&quot;: &quot;Run&quot;,
+    &quot;Application.RPGRunner.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/ockoe/Documents/NWTC/Java Part 2/Final/TextBasedRPG/resources/derbyclient.jar&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -128,10 +94,32 @@
       <updated>1739312614337</updated>
       <workItem from="1739312615523" duration="31000" />
       <workItem from="1739574184877" duration="13886000" />
+      <workItem from="1739822358339" duration="13108000" />
+      <workItem from="1739908472824" duration="7518000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/CharClass.java</url>
+          <line>25</line>
+          <properties class="CharClass" method="Attack">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/RPGRunner.java</url>
+          <line>73</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

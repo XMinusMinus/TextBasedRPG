@@ -1,5 +1,7 @@
 import java.time.DateTimeException;
 import java.time.Instant;
+import java.sql.*;
+import org.apache.derby.jdbc.EmbeddedDataSource;
 import java.util.MissingResourceException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -26,23 +28,59 @@ public class RPGRunner  {
                   new Attacks(AttackTypes.RANGED, "Rock Throw", 13, 1),
                   new Attacks(AttackTypes.RANGED, "Spear Throw", 14, 1)
           };
+          DatabaseLoad dl = new DatabaseLoad();
 
+         // dl.main(args);
           CharClass player;
           Stats npcStats = new Stats();
-          npcStats.setStat("HP", 100);
-          npcStats.setStat("Attack", 10);
-          npcStats.setStat("Defense", 25);
-          npcStats.setStat("Magic Power", 0);
+          EmbeddedDataSource ds = new EmbeddedDataSource();
+         // System.out.println(dl.getPlayername("Warrior"));
+//          ds.setDatabaseName("rpgdata");
+//          ds.setCreateDatabase("create");
+
+//          Connection con = ds.getConnection();
+//          Statement stmt = con.createStatement();
+//          ResultSet rs = stmt.executeQuery("select name,description,ispassive from npc where name = 'Guard'");
+//          ResultSet rss = stmt.executeQuery("select name,charmaxstamina from playerclass where name = 'Warrior'");
+//          ResultSet playerstatrs = stmt.executeQuery("select name,value from stats where playerclass_id = 1");
+//          ResultSet npcstatrs = stmt.executeQuery("select name,value from stats where npc_id = 1");
+
+        //  ResultSet rs = dl.getNPCpassive;
+        //  ResultSet rss = stmt.executeQuery("select name,charmaxstamina from playerclass where name = 'Warrior'");
+        //  ResultSet playerstatrs = stmt.executeQuery("select name,value from stats where playerclass_id = 1");
+         // ResultSet npcstatrs = stmt.executeQuery("select name,value from stats where npc_id = 1");
+
+       //   npcStats.setStat("HP", 100);
+       //   npcStats.setStat("Attack", 10);
+       //   npcStats.setStat("Defense", 25);
+       //   npcStats.setStat("Magic Power", 0);
           Stats playerStats = new Stats();
-          playerStats.setStat("HP", 100);
-          playerStats.setStat("MAXHP", 100);
-          playerStats.setStat("Attack", 20);
-          playerStats.setStat("Defense", 30);
-          playerStats.setStat("Magic Power", 10);
-          playerStats.setStat("Stanima", 100);
-          playerStats.setStat("StanimaMax", 100);
-          player = new CharClass("Hero", Professions.POTION_MAKER, 100, playerStats, attacks);
-          Npc guard = new Npc("Guard", "A strong warrior", false, npcStats, new HashMap<String, String>(){}, npcattacks);
+        //  playerStats.setStat("HP", 100);
+       //   playerStats.setStat("MAXHP", 100);
+       //   playerStats.setStat("Attack", 20);
+       //   playerStats.setStat("Defense", 30);
+       //   playerStats.setStat("Magic Power", 10);
+       //   playerStats.setStat("Stanima", 100);
+       //   playerStats.setStat("StanimaMax", 100);
+          player = new CharClass(dl.getPlayername("Warrior"), Professions.SOLDIER, dl.getPlayerstanima("Warrior"), playerStats, attacks, ClassTypes.WARRIOR);
+
+          ResultSet playerstatrs = dl.getPlayerstats();
+          while (playerstatrs.next()) {
+              String statName = playerstatrs.getString("name");
+              int statValue = playerstatrs.getInt("value");
+
+              System.out.println(statName + " : " + statValue);
+
+              playerStats.setStat(statName, statValue);
+          }
+
+          Npc guard = new Npc(dl.getNPCname("Guard"), dl.getNPCdescrip("Guard"), dl.getNPCpassive("Guard"), npcStats, new HashMap<String, String>() {}, npcattacks);
+
+       //   Npc guard = new Npc("Guard", "A strong warrior", false, npcStats, new HashMap<String, String>(){}, npcattacks);
+          ResultSet npcstatrs = dl.getNPCstats();
+         while (npcstatrs.next()) {
+              npcStats.setStat(npcstatrs.getString("name"), npcstatrs.getInt("value"));
+          }
 
           // Adding items to the player
           Item healthPotion = new Item("Health Potion", 1, 0.5, 50, true, false,false);

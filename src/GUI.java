@@ -42,9 +42,11 @@ public class GUI {
     }
     public void BattleCaculation(Npc npc, CharClass character, World world){
         if(npc.GetIsPassive() == true){
+            System.out.println(npc.GetName()+": Has let you pass to the next floor.");
             world.AdvanceFloor();
         }
         else if(npc.GetIsPassive() == false && npc.getStat("HP") <= 0){
+            System.out.println(npc.GetName()+": Has been slain.");
             world.AdvanceFloor();
         }
         else if(character.getStat("HP") <= 0){

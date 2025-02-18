@@ -5,6 +5,8 @@
       <root url="jar://$PROJECT_DIR$/resources/log4j-core-2.17.2-javadoc.jar!/" />
       <root url="jar://$PROJECT_DIR$/resources/log4j-api-2.17.2-javadoc.jar!/" />
       <root url="jar://$PROJECT_DIR$/resources/log4j-core-2.17.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/resources/derby.jar!/" />
+      <root url="jar://$PROJECT_DIR$/resources/derbyclient.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

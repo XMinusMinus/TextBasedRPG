@@ -33,6 +33,9 @@ public class Attacks {
         return this.attackName;
     }
 
+    @Override
+    public String toString(){return getAttackName();}
+
     public int getAttackBaseDamage() {return this.baseDamage;}
 
     public double getAttackAccuracy() {return this.attackAccuracy;}

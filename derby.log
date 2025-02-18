@@ -1,0 +1,13 @@
+----------------------------------------------------------------
+Tue Feb 18 15:59:17 CST 2025:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.12.1.1 - (1704137): instance a816c00e-0195-1b12-95b6-00001f0f7158 
+on database directory C:\Users\ockoe\Documents\NWTC\Java Part 2\Final\TextBasedRPG\rpgdata with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@5a07e868 
+Loaded from file:/C:/Users/ockoe/Documents/NWTC/Java%20Part%202/Final/TextBasedRPG/resources/derby.jar
+java.vendor=Oracle Corporation
+java.runtime.version=23.0.2+7-58
+user.dir=C:\Users\ockoe\Documents\NWTC\Java Part 2\Final\TextBasedRPG
+os.name=Windows 10
+os.arch=amd64
+os.version=10.0
+derby.system.home=null
+Database Class Loader started - derby.database.classpath=''

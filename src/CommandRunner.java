@@ -5,12 +5,14 @@ public class CommandRunner implements RPGInterface{
     private CharClass player;
     private Npc npc;
     private World world;
+    private ClassTypes classType;
 
     public CommandRunner(CharClass player, Npc npc, World world) {
         this.gui = new GUI();
         this.player = player;
         this.npc = npc;
         this.world = world;
+        this.classType = classType;
     }
 
     @Override
@@ -18,11 +20,15 @@ public class CommandRunner implements RPGInterface{
         System.out.println(gui.DisplayCharacterStats(character));
     }
 
-    @Override
-    public void displayAttacks(CharClass character) {
+ @Override
+    public void displayAttacks(CharClass character, Npc npc, World world) {
         System.out.println(gui.DisplayMoveChoices(character));
+        Attacks plyAttack = gui.MakeMoveChoice(character);
+        System.out.println(character.Attack( plyAttack, npc));
+        System.out.println(npc.Attack(plyAttack,character));
+        gui.BattleCaculation(npc,character,world);
 
-        //character.Attack(gui.MakeMoveChoice(character), );
+
 
     }
 
@@ -54,7 +60,7 @@ public class CommandRunner implements RPGInterface{
                     displayStats(player);
                     break;
                 case "attacks":
-                    displayAttacks(player);
+                    displayAttacks(player,npc,world);
                     npc.choseRandomAttack(player);
                     gui.BattleCaculation(npc,player,world);
                     break;

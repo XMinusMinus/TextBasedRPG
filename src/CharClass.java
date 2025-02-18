@@ -10,11 +10,12 @@ public class CharClass extends Character{
     private int charMaxStamina;
     private List<Item> inventory;
 
-    public CharClass(String name, Professions profession, int charMaxStamina, Stats stats, Attacks[] attacks) {
+    public CharClass(String name, Professions profession, int charMaxStamina, Stats stats, Attacks[] attacks, ClassTypes classType) {
 
         super(name, profession, charMaxStamina, stats);
         this.inventory = new ArrayList<>();
         this.attacks = attacks;
+        this.classType = classType;
     }
 
     @Override
@@ -37,6 +38,8 @@ public class CharClass extends Character{
             return super.GetName() + " Does not have stamina for this move";
         }
     }
+
+    public ClassTypes getClassType(){return this.classType;}
 
     public Attacks[] getAttacks()
     {

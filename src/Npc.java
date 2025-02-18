@@ -227,4 +227,7 @@ public class Npc {
         int index = rand.nextInt(attacks.length);
         Attack(attacks[index],target);
     }
+
+    @Override
+    public String toString(){return GetName();}
 }
