@@ -5,20 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4b38f56b-8c14-4f18-b3aa-ad5838bcb0d0" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/resources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/resources.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TextBasedRPG.iml" beforeDir="false" afterPath="$PROJECT_DIR$/TextBasedRPG.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Attacks.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Attacks.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CharClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CharClass.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Npc.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Npc.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/RPGRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/RPGRunner.java" afterDir="false" />
-    </list>
-    <list id="7aacee84-f90e-45d0-b6f9-5c6c5b6888ed" name="Changes by Adam Bluma" comment="" />
-    <list id="6fe56170-8318-41fe-9a49-dd3757e0ef16" name="Changes by wcraw" comment="">
-      <change beforePath="$PROJECT_DIR$/src/CommandRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CommandRunner.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/RPGInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/RPGInterface.java" afterDir="false" />
+    </list>
+    <list id="7aacee84-f90e-45d0-b6f9-5c6c5b6888ed" name="Changes by Adam Bluma" comment="">
+      <change beforePath="$PROJECT_DIR$/src/Stats.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Stats.java" afterDir="false" />
+    </list>
+    <list id="6fe56170-8318-41fe-9a49-dd3757e0ef16" name="Changes by wcraw" comment="">
+      <change beforePath="$PROJECT_DIR$/src/GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Item.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NPCType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/NPCType.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/RPGRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/RPGRunner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Stats.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Stats.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/WepondItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/WepondItem.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,13 +36,21 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="LineStatusTrackerManager">
-    <file path="$PROJECT_DIR$/src/RPGRunner.java">
+    <file path="$PROJECT_DIR$/src/GUI.java">
       <ranges>
-        <range start1="2" end1="2" start2="2" end2="4" changelist="4b38f56b-8c14-4f18-b3aa-ad5838bcb0d0" />
-        <range start1="28" end1="28" start2="30" end2="31" changelist="6fe56170-8318-41fe-9a49-dd3757e0ef16" />
-        <range start1="29" end1="29" start2="32" end2="33" changelist="6fe56170-8318-41fe-9a49-dd3757e0ef16" />
-        <range start1="31" end1="35" start2="35" end2="56" changelist="4b38f56b-8c14-4f18-b3aa-ad5838bcb0d0" />
-        <range start1="36" end1="45" start2="57" end2="83" changelist="4b38f56b-8c14-4f18-b3aa-ad5838bcb0d0" />
+        <range start1="1" end1="1" start2="1" end2="3" changelist="6fe56170-8318-41fe-9a49-dd3757e0ef16" />
+        <range start1="86" end1="86" start2="88" end2="90" changelist="4b38f56b-8c14-4f18-b3aa-ad5838bcb0d0" />
+        <range start1="91" end1="91" start2="95" end2="99" changelist="6fe56170-8318-41fe-9a49-dd3757e0ef16" />
+      </ranges>
+    </file>
+    <file path="$PROJECT_DIR$/src/Stats.java">
+      <ranges>
+        <range start1="1" end1="1" start2="1" end2="2" changelist="7aacee84-f90e-45d0-b6f9-5c6c5b6888ed" />
+        <range start1="2" end1="3" start2="3" end2="4" changelist="6fe56170-8318-41fe-9a49-dd3757e0ef16" />
+        <range start1="4" end1="4" start2="5" end2="6" changelist="6fe56170-8318-41fe-9a49-dd3757e0ef16" />
+        <range start1="9" end1="10" start2="11" end2="12" changelist="6fe56170-8318-41fe-9a49-dd3757e0ef16" />
+        <range start1="13" end1="14" start2="15" end2="16" changelist="6fe56170-8318-41fe-9a49-dd3757e0ef16" />
+        <range start1="17" end1="18" start2="19" end2="20" changelist="6fe56170-8318-41fe-9a49-dd3757e0ef16" />
       </ranges>
     </file>
   </component>
@@ -96,6 +103,8 @@
       <workItem from="1739574184877" duration="13886000" />
       <workItem from="1739822358339" duration="13108000" />
       <workItem from="1739908472824" duration="7518000" />
+      <workItem from="1739984746988" duration="319000" />
+      <workItem from="1740180238201" duration="12167000" />
     </task>
     <servers />
   </component>
@@ -113,11 +122,6 @@
             <option name="WATCH_EXIT" value="false" />
           </properties>
           <option name="timeStamp" value="2" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/RPGRunner.java</url>
-          <line>73</line>
-          <option name="timeStamp" value="4" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

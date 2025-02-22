@@ -1,4 +1,6 @@
 
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Scanner;
 public class GUI {
@@ -84,11 +86,17 @@ public class GUI {
 
     public String DisplayInventory(CharClass character) {
         List<Item> items = character.getInventory();
+
+
         StringBuilder displayMessage = new StringBuilder("[-------------INVENTORY-------------]\n");
 
         if (items.isEmpty()) {
             displayMessage.append("Inventory is empty.");
         } else {
+            //Sorts items by rarity value
+            items.sort(Comparator.comparingInt(p -> p.getRarityValue()));
+
+            Collections.sort(items);
             for (Item item : items) {
                 displayMessage.append("\n- ").append(item.getItemAmount()).append("x ").append(item.getItemName());
             }

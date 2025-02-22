@@ -1,17 +1,34 @@
-public class Item {
+import java.util.Comparator;
+
+public class Item implements Comparable<Item>, Comparator<Item> {
+
+    //A Comparable allows a class to define its natural ordering by implementing the compareTo() method
+    //A Comparator is a separate object used to define custom ordering by implementing the compare() method
+@Override
+    public int compareTo(Item item) {
+        return this.getRarityValue() - item.getRarityValue();
+    }
+
+@Override
+    public int compare(Item item1, Item item2) {
+        return item1.getRarityValue() - item2.getRarityValue();
+    }
     //Basic properties
     private String name;
     private int amount;
+    private int rarityValue;
     private double weight;
     private double value;
     private boolean isConsumable;
     private boolean isMainHandEquipable;
     private boolean isOffHandEquipable;
 
+
     //Default constructor
-    public Item(String name, int amount, double weight, double value, boolean isConsumable, boolean isMainHandEquipable, boolean isOffHandEquipable) {
+    public Item(String name, int amount, double weight, double value, boolean isConsumable, boolean isMainHandEquipable, boolean isOffHandEquipable, int rarityValue) {
         this.name = name;
         this.amount = amount;
+        this.rarityValue = rarityValue;
         this.weight = weight;
         this.value = value;
         this.isConsumable = isConsumable;
@@ -34,6 +51,10 @@ public class Item {
     public boolean isItemConsumable() {
         return this.isConsumable;
     }
+
+    public int getRarityValue() {return this.rarityValue;}
+
+    public void setRarityValue(int rarityValue) { this.rarityValue = rarityValue;}
 
     public boolean isItemMainHandEquipable() {
         return this.isMainHandEquipable;
