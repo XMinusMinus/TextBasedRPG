@@ -1,10 +1,6 @@
+
 import java.time.DateTimeException;
-import java.time.Instant;
-import java.sql.*;
-import org.apache.derby.jdbc.EmbeddedDataSource;
-
 import java.util.*;
-
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -99,15 +95,32 @@ public class RPGRunner  {
         //  ResultSet playerstatrs = stmt.executeQuery("select name,value from stats where playerclass_id = 1");
          // ResultSet npcstatrs = stmt.executeQuery("select name,value from stats where npc_id = 1");
 
+
           //creates stats for npc created
           Stats npcStats = new Stats();
           npcStats.setStat("HP", 100);
           npcStats.setStat("Attack", 10);
           npcStats.setStat("Defense", 25);
           npcStats.setStat("Magic Power", 0);
+
+          Stats npcStats1 = new Stats();
+          npcStats1.setStat("HP", 100);
+          npcStats1.setStat("Attack", 100);
+          npcStats1.setStat("Defense", 25);
+          npcStats1.setStat("Magic Power", 0);
+
+          Stats npcStats2 = new Stats();
+          npcStats2.setStat("HP", 2000);
+          npcStats2.setStat("Attack", 100);
+          npcStats2.setStat("Defense", 25);
+          npcStats2.setStat("Magic Power", 0);
+
+          System.out.println(npcStats);
+          System.out.println(npcStats1);
+
           //creates the players stats for a selected class
           Stats playerStats = new Stats();
-          playerStats.setStat("HP", 100);
+          playerStats.setStat("HP", 10);
           playerStats.setStat("MAXHP", 100);
           playerStats.setStat("Attack", 20);
           playerStats.setStat("Defense", 30);
@@ -115,7 +128,9 @@ public class RPGRunner  {
           playerStats.setStat("Stanima", 100);
           playerStats.setStat("StanimaMax", 100);
 
-          player = new CharClass("Hero", Professions.SOLDIER, 100,playerStats, attacks, ClassTypes.WARRIOR);
+          System.out.println(playerStats);
+
+          player = new CharClass("Hero", Professions.SOLDIER, 100, playerStats, attacks, ClassTypes.WARRIOR);
 
        //   ResultSet playerstatrs = dl.getPlayerstats();
         //  while (playerstatrs.next()) {
@@ -127,9 +142,15 @@ public class RPGRunner  {
           //    playerStats.setStat(statName, statValue);
         //  }
           //Npc is used to create the list of enemys/passive entitys within the rpg game
-          Npc guard = new Npc("Gaurd", "a strong warrior", false, npcStats, new HashMap<String, String>() {}, npcattacks);
-          Npc shadow = new Npc("Shadow", "a ghost like shadow appears in front of you", false, npcStats, new HashMap<String, String>() {}, npcattacks);
-       //   Npc guard = new Npc("Guard", "A strong warrior", false, npcStats, new HashMap<String, String>(){}, npcattacks);
+       //   GaurdNPC guard = new GaurdNPC("Gaurd", "a strong warrior", false, npcStats, new HashMap<String, String>() {}, npcattacks);
+          Npc shadow = new Npc("Shadow", "a ghost like shadow appears in front of you", false, npcStats1, new HashMap<String, String>() {}, npcattacks);
+          Npc goblin = new Npc("Goblin", "a little green monster appears in front of you", false, npcStats2, new HashMap<String, String>() {}, npcattacks);
+          Npc guard = new Npc("Guard", "A strong warrior", false, npcStats, new HashMap<String, String>(){}, npcattacks);
+          System.out.println(guard);
+          System.out.println(shadow);
+          System.out.println(goblin);
+
+
        //   ResultSet npcstatrs = dl.getNPCstats();
        //  while (npcstatrs.next()) {
        //       npcStats.setStat(npcstatrs.getString("name"), npcstatrs.getInt("value"));
@@ -159,7 +180,8 @@ public class RPGRunner  {
           // Npcs for world 1
           Npc[] npcs = new Npc[]{
                   guard,
-                  shadow
+                  shadow,
+                  goblin
           };
 
           //Floors for world 1
@@ -170,7 +192,7 @@ public class RPGRunner  {
           //instantiation of world 1
           World world1 = new World(player, 1, floors,false, WorldType.NORMAL);
           //CommandRunner allows the player to use the games interfaces
-          CommandRunner game = new CommandRunner(player, guard, world1);
+          CommandRunner game = new CommandRunner(player, world1.getCurrentNpc(), world1);
           game.run();
       }
       catch(ArrayStoreException exception){
@@ -184,6 +206,7 @@ public class RPGRunner  {
       }
       catch(NullPointerException exception){
           System.err.println("Error: Trying to store a null data type in an object which can't be null");
+          exception.printStackTrace();
       }
       catch(IllegalStateException exception){
           System.err.println("Error: Attempting to run an method which has been passed an ilegal or inapporpriate agrument");
@@ -199,6 +222,7 @@ public class RPGRunner  {
       }
       catch(Exception exception){
           System.err.println("Error: An unexpected exception occurred: " + exception.getMessage());
+          exception.printStackTrace();
       }
     }
 }

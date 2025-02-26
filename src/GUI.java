@@ -1,4 +1,3 @@
-
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
@@ -13,7 +12,7 @@ public class GUI {
         String displayMessage = "[-------------AVAILABLE ATTACKS-------------]\n";
         for (int i = 0; i < attacks.length; i++)
         {
-            displayMessage += "\n" + (i + 1) + ". " + attacks[i].getAttackName();
+            displayMessage += "\n" + (i + 1) + ". " + attacks[i].getAttackName()+": Power "+ attacks[i].getBaseDamage();
         }
 
         displayMessage += "\n[^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^]";
@@ -45,16 +44,17 @@ public class GUI {
     public void BattleCaculation(Npc npc, CharClass character, World world){
         if(npc.GetIsPassive() == true){
             System.out.println(npc.GetName()+": Has let you pass to the next floor.");
-            world.AdvanceFloor();
+            world.CheckAdvanceFloor();
         }
         else if(npc.GetIsPassive() == false && npc.getStat("HP") <= 0){
             System.out.println(npc.GetName()+": Has been slain.");
-            world.AdvanceFloor();
+            world.CheckAdvanceFloor();
         }
         else if(character.getStat("HP") <= 0){
             System.out.println("You Blacked out!");
             character.setStat("HP", character.getStat("MAXHP"));
-            world.GameLossFloorReset();
+            System.exit(0);
+         //   world.GameLossFloorReset();
         }
 
     }
@@ -117,7 +117,7 @@ public class GUI {
         // validate input
         // if its less than 1 or more than the item length, call them out and retry
         if (input > items.size() || input < 1) {
-            System.out.println("Sorry, that attack doesn't exist.");
+            System.out.println("Sorry, that item doesn't exist.");
             MakeMoveChoice(character);
         }
         // subtract input by 1 to account for how items are shown

@@ -23,13 +23,14 @@ public class CharClass extends Character{
         return super.GetName() + ", the " + super.GetProfession().toString();
     }
 
-    public String Attack(Attacks attack, Npc target)
+    public String Attack(Attacks attack, Npc target, CharClass player)
     {
         if(getcharStanima() >= attack.getAttackStanUsage()) {
-            double damage = attack.getBaseDamage() * this.classType.getDamageMultiplier(attack.getAttackType());
+            double damage = attack.getBaseDamage() *  player.getStat("Attack")/ target.getStat("Defense");
+            double damageBonus = this.classType.getDamageMultiplier(attack.getAttackType());
             setStanima(attack.getAttackStanUsage());
             double npcCurrentHP = target.getStat("HP");
-            double afterAttack = npcCurrentHP - damage;
+            double afterAttack = npcCurrentHP - damage * damageBonus;
             target.setStat("HP",afterAttack);
             //target.TakeDamage(damage, attack.getAttackType());
             return super.GetName() +" used "+ attack.toString() + " which did " + damage + " to " + target.toString();

@@ -3,7 +3,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Random;
 
+
 public class Npc {
+    //region Variables
     /**
      * The name of the NPC.
      */
@@ -40,8 +42,9 @@ public class Npc {
     private HashMap<String, String> dialogue;
 
     private Attacks[] attacks = new Attacks[5];
+    //endregion
 
-    public Npc(String name, String description, Boolean isPassive,Stats stats,HashMap<String, String> dialogue,Attacks[] attacks) {
+    public Npc(String name, String description, Boolean isPassive, Stats stats, HashMap<String, String> dialogue, Attacks[] attacks) {
         this.name = name;
         this.description = description;
         this.isPassive = isPassive;
@@ -208,24 +211,27 @@ public class Npc {
         return output;
     }
     //endregion
-    public String Attack(Attacks attack, CharClass target)
+    public String Attack(Attacks attack, CharClass target, Npc npc)
     {
-            double damage = attack.getBaseDamage();
-            double plyCurrentHP = target.getStat("HP");
-            double afterAttack = plyCurrentHP - damage;
-            target.setStat("HP",afterAttack);
-            return GetName() +" used "+ attack.toString() + " which did " + damage + " to " + target.toString();
+
+               double damage = attack.getBaseDamage();
+               double plyCurrentHP = target.getStat("HP");
+               double damageCal = damage * npc.getStat("Attack") / target.getStat("Defense");
+               double afterAttack = plyCurrentHP - damageCal;
+               target.setStat("HP", afterAttack);
+               return GetName() + " used " + attack.toString() + " which did " + damage + " to " + target.toString();
+
     }
     public Attacks[] getAttacks()
     {
         return attacks;
     }
 
-    public void choseRandomAttack(CharClass target){
+    public void choseRandomAttack(CharClass target, Npc npc){
         Attacks[] attacks = getAttacks();
         Random rand = new Random();
         int index = rand.nextInt(attacks.length);
-        Attack(attacks[index],target);
+        Attack(attacks[index],target, npc);
     }
 
     @Override
