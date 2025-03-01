@@ -1,6 +1,15 @@
+import java.sql.Array;
+import java.util.ArrayList;
+import java.util.*;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
+import java.util.function.BiPredicate;
+import java.util.function.Function;
+import java.util.function.Predicate;
+import java.util.function.Supplier;
 
-public class CommandRunner implements RPGInterface{
+public class CommandRunner implements RPGInterface {
     private GUI gui;
     private CharClass player;
     private World world;
@@ -18,13 +27,13 @@ public class CommandRunner implements RPGInterface{
         System.out.println(gui.DisplayCharacterStats(character));
     }
 
- @Override
+    @Override
     public void displayAttacks(CharClass character, Npc npc, World world) {
         System.out.println(gui.DisplayMoveChoices(character));
         Attacks plyAttack = gui.MakeMoveChoice(character);
-        System.out.println(character.Attack( plyAttack, npc,character));
-        System.out.println(npc.Attack(plyAttack,character,npc));
-       // gui.BattleCaculation(npc,character,world);
+        System.out.println(character.Attack(plyAttack, npc, character));
+        System.out.println(npc.Attack(plyAttack, character, npc));
+        // gui.BattleCaculation(npc,character,world);
     }
 
     @Override
@@ -45,27 +54,57 @@ public class CommandRunner implements RPGInterface{
     public void run() {
         Scanner scanner = new Scanner(System.in);
         String input;
+        List<String> commands = Arrays.asList("stats", "attacks", "items", "npcstats", "exit");
 
         while (true) {
             System.out.println("Enter a command (stats, attacks, items, npcstats, exit): ");
             input = scanner.nextLine().toLowerCase();
-            Npc currentNpc = world.getCurrentNpc();
-            System.out.println("CURRENT NPC: " + currentNpc.GetName());
 
-            switch (input) {
+            Supplier<Npc> currentNpc = world::getCurrentNpc;
+            System.out.println("CURRENT NPC: " + currentNpc.get().GetName());
+
+            BiPredicate<String, String> isSimilar = (userInput, command) -> {
+                return command.startsWith(userInput);
+            };
+
+            Map<String, Integer> matchScores = new HashMap<>();
+            for (String command : commands) {
+                if (isSimilar.test(input, command)) {
+                    matchScores.put(command, getMatchScore(input, command));
+                }
+            }
+
+            if (matchScores.isEmpty()) {
+                System.out.println("Invalid command. Try again.");
+                continue;
+            }
+
+            // Sort by best match
+            List<Map.Entry<String, Integer>> sortedMatches = new ArrayList<>(matchScores.entrySet());
+            sortedMatches.sort(Map.Entry.comparingByValue(Comparator.reverseOrder()));
+
+            // If there's a tie, display only the tied options
+            if (sortedMatches.size() > 1 && sortedMatches.get(0).getValue().equals(sortedMatches.get(1).getValue())) {
+                System.out.println("Multiple possible commands: " + sortedMatches.stream().map(Map.Entry::getKey).toList());
+                continue;
+            }
+
+            // Execute the best-matched command
+            String bestMatch = sortedMatches.get(0).getKey();
+            switch (bestMatch) {
                 case "stats":
                     displayStats(player);
                     break;
                 case "attacks":
-                    displayAttacks(player,currentNpc,world);
-                    currentNpc.choseRandomAttack(player,currentNpc);
-                    gui.BattleCaculation(currentNpc,player,world);
+                    displayAttacks(player, currentNpc.get(), world);
+                    currentNpc.get().choseRandomAttack(player, currentNpc.get());
+                    gui.BattleCaculation(currentNpc.get(), player, world);
                     break;
                 case "items":
                     displayItems(player);
                     break;
                 case "npcstats":
-                    displayNPCStats(currentNpc);
+                    displayNPCStats(currentNpc.get());
                     break;
                 case "exit":
                     System.out.println("Exiting game...");
@@ -76,4 +115,16 @@ public class CommandRunner implements RPGInterface{
             }
         }
     }
+
+    private static int getMatchScore(String input, String command) {
+        int score = 0;
+        Function<String,Integer> length = String::length;
+        for (int i = 0; i < length.apply(input); i++) {
+            if (i < command.length() && input.charAt(i) == command.charAt(i)) {
+                score++;
+            }
+        }
+        return score;
+    }
+
 }

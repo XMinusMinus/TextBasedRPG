@@ -1,6 +1,10 @@
 
 import java.time.DateTimeException;
 import java.util.*;
+import java.util.function.BiConsumer;
+import java.util.function.Function;
+import java.util.function.Predicate;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -10,30 +14,23 @@ public class RPGRunner  {
     public final static Logger log = LogManager.getLogger(RPGRunner.class.getName());
     public static void main(String[] args) {
       try {
-          //
-          Set<Attacks> attackSet = new HashSet<>();
-          attackSet.add(new Attacks(AttackTypes.RANGED, "Potion Throw", 10, 1));
-          attackSet.add(new Attacks(AttackTypes.RANGED, "Knife Throw", 11,1));
-          attackSet.add(new Attacks(AttackTypes.RANGED, "Slingshot", 12, 1));
-          attackSet.add(new Attacks(AttackTypes.RANGED, "Rock Throw", 13, 1));
-          attackSet.add(new Attacks(AttackTypes.RANGED, "Spear Throw", 500, 1));
 
-          System.out.println("Ordered HashSet:");
-          List<Attacks> attackList = new ArrayList<>(attackSet);
-          //Sorts by base damage
-          attackList.sort(Comparator.comparingInt(p -> p.getBaseDamage()));
-          for (Attacks attack : attackList) {
-              System.out.println(attack);
-          }
+          Function<String,Integer> f1 = String::length;
+          System.out.println(f1.apply("hello"));
 
           Stats playerSt = new Stats();
-          playerSt.setStat("HP", 100);
-          playerSt.setStat("MAXHP", 100);
-          playerSt.setStat("Attack", 20);
-          playerSt.setStat("Defense", 30);
-          playerSt.setStat("Magic Power", 10);
-          playerSt.setStat("Stanima", 100);
-          playerSt.setStat("StanimaMax", 100);
+
+          //Consumer Usage
+          BiConsumer<String, Integer> setStats = (k, v) -> playerSt.setStat(k, v);
+
+          setStats.accept("HP", 100);
+          setStats.accept("MAXHP", 100);
+          setStats.accept("Attack", 20);
+          setStats.accept("Defense", 30);
+          setStats.accept("Magic Power", 10);
+          setStats.accept("Stanima", 100);
+          setStats.accept("StanimaMax", 100);
+
           Attacks[] attack = new Attacks[]{
                   new Attacks(AttackTypes.RANGED, "Potion Throw", 10, 1),
                   new Attacks(AttackTypes.RANGED, "Knife Throw", 11,1),
@@ -41,21 +38,21 @@ public class RPGRunner  {
                   new Attacks(AttackTypes.RANGED, "Rock Throw", 13, 1),
                   new Attacks(AttackTypes.RANGED, "Spear Throw", 500, 1)
           };
-          System.out.println("Ordered HashMap:");
-         HashMap<Effects, CharClass> activeEffects = new HashMap<>();
-         activeEffects.put(new Effects("Poison","does damage over time",5,0,4),new CharClass("Hero", Professions.SOLDIER, 100,playerSt, attack, ClassTypes.WARRIOR));
-         activeEffects.put(new Effects("Withering","does large damage over a shorter time",10,0,2),new CharClass("Hero", Professions.SOLDIER, 100,playerSt, attack, ClassTypes.WARRIOR));
-         activeEffects.put(new Effects("Blindness","lowers your accuracy with attacks",0,0,3),new CharClass("Hero", Professions.SOLDIER, 100,playerSt, attack, ClassTypes.WARRIOR));
-         activeEffects.put(new Effects("Regenerative","does healing over time",0,5,3),new CharClass("Hero", Professions.SOLDIER, 100,playerSt, attack, ClassTypes.WARRIOR));
-         List<Map.Entry<Effects,CharClass>> sortedEffects = new ArrayList<>(activeEffects.entrySet());
-         sortedEffects.sort((getEffect1,getEffect2) -> Integer.compare(getEffect2.getKey().getEffectDamage(),getEffect1.getKey().getEffectDamage()));
-         LinkedHashMap<Effects, CharClass> effects = new LinkedHashMap<>();
-         for (Map.Entry<Effects, CharClass> entry : sortedEffects) {
-             effects.put(entry.getKey(), entry.getValue());
-         }
-         for (Map.Entry<Effects, CharClass> entry : effects.entrySet()) {
-             System.out.println(entry.getKey().getEffectName() + " Damage Done " + entry.getKey().getEffectDamage() );
-         }
+       //   System.out.println("Ordered HashMap:");
+      //   HashMap<Effects, CharClass> activeEffects = new HashMap<>();
+      //   activeEffects.put(new Effects("Poison","does damage over time",5,0,4),new CharClass("Hero", Professions.SOLDIER, 100,playerSt, attack, ClassTypes.WARRIOR));
+       //  activeEffects.put(new Effects("Withering","does large damage over a shorter time",10,0,2),new CharClass("Hero", Professions.SOLDIER, 100,playerSt, attack, ClassTypes.WARRIOR));
+      //   activeEffects.put(new Effects("Blindness","lowers your accuracy with attacks",0,0,3),new CharClass("Hero", Professions.SOLDIER, 100,playerSt, attack, ClassTypes.WARRIOR));
+      //   activeEffects.put(new Effects("Regenerative","does healing over time",0,5,3),new CharClass("Hero", Professions.SOLDIER, 100,playerSt, attack, ClassTypes.WARRIOR));
+      //   List<Map.Entry<Effects,CharClass>> sortedEffects = new ArrayList<>(activeEffects.entrySet());
+      //   sortedEffects.sort((getEffect1,getEffect2) -> Integer.compare(getEffect2.getKey().getEffectDamage(),getEffect1.getKey().getEffectDamage()));
+     //    LinkedHashMap<Effects, CharClass> effects = new LinkedHashMap<>();
+     //    for (Map.Entry<Effects, CharClass> entry : sortedEffects) {
+     //        effects.put(entry.getKey(), entry.getValue());
+     //    }
+     //    for (Map.Entry<Effects, CharClass> entry : effects.entrySet()) {
+     //        System.out.println(entry.getKey().getEffectName() + " Damage Done " + entry.getKey().getEffectDamage() );
+     //    }
           //attacks is used to hold all of the players attacks
           Attacks[] attacks = new Attacks[]{
                   new Attacks(AttackTypes.RANGED, "Potion Throw", 10, 1),

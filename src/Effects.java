@@ -1,4 +1,5 @@
 import java.util.*;
+import java.util.function.UnaryOperator;
 
 public class Effects {
 
@@ -18,6 +19,11 @@ public class Effects {
 
     public String getEffectName() {
         return effectName;
+    }
+
+    public String getEffectNameLowercase() {
+        UnaryOperator<String> makeStringCapitalized = String::toLowerCase;
+        return makeStringCapitalized.apply(this.effectName);
     }
 
     public String getEffectDescrip() {

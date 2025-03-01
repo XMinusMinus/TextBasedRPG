@@ -3,6 +3,7 @@ import java.util.List;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
+
 //Stats is used to hold double type values used for damage or health caculations between attacks
 public class Stats {
     //stats hash map is used to hold each stat with there corrsponding value
@@ -41,6 +42,7 @@ public class Stats {
                 return;
             }
         }
+
         stats.add(new Stat(statName, amount));
     }
 
