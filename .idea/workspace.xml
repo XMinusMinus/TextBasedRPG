@@ -4,19 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4b38f56b-8c14-4f18-b3aa-ad5838bcb0d0" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CommandRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CommandRunner.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/RPGRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/RPGRunner.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Stats.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Stats.java" afterDir="false" />
-    </list>
-    <list id="7aacee84-f90e-45d0-b6f9-5c6c5b6888ed" name="Changes by Adam Bluma" comment="">
-      <change beforePath="$PROJECT_DIR$/src/Effects.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Effects.java" afterDir="false" />
-    </list>
-    <list id="6fe56170-8318-41fe-9a49-dd3757e0ef16" name="Changes by wcraw" comment="">
-      <change beforePath="$PROJECT_DIR$/src/CommandRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CommandRunner.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/RPGRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/RPGRunner.java" afterDir="false" />
-    </list>
+    <list default="true" id="4b38f56b-8c14-4f18-b3aa-ad5838bcb0d0" name="Changes" comment="" />
+    <list id="7aacee84-f90e-45d0-b6f9-5c6c5b6888ed" name="Changes by Adam Bluma" comment="" />
+    <list id="6fe56170-8318-41fe-9a49-dd3757e0ef16" name="Changes by wcraw" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -32,32 +22,6 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="LineStatusTrackerManager">
-    <file path="$PROJECT_DIR$/src/CommandRunner.java">
-      <ranges>
-        <range start1="0" end1="0" start2="0" end2="5" changelist="6fe56170-8318-41fe-9a49-dd3757e0ef16" />
-        <range start1="1" end1="1" start2="6" end2="10" changelist="6fe56170-8318-41fe-9a49-dd3757e0ef16" />
-        <range start1="2" end1="3" start2="11" end2="12" changelist="6fe56170-8318-41fe-9a49-dd3757e0ef16" />
-        <range start1="20" end1="21" start2="29" end2="30" changelist="6fe56170-8318-41fe-9a49-dd3757e0ef16" />
-        <range start1="24" end1="27" start2="33" end2="36" changelist="6fe56170-8318-41fe-9a49-dd3757e0ef16" />
-        <range start1="47" end1="47" start2="56" end2="57" changelist="4b38f56b-8c14-4f18-b3aa-ad5838bcb0d0" />
-        <range start1="51" end1="53" start2="61" end2="80" changelist="4b38f56b-8c14-4f18-b3aa-ad5838bcb0d0" />
-        <range start1="54" end1="55" start2="81" end2="94" changelist="4b38f56b-8c14-4f18-b3aa-ad5838bcb0d0" />
-        <range start1="59" end1="62" start2="98" end2="101" changelist="4b38f56b-8c14-4f18-b3aa-ad5838bcb0d0" />
-        <range start1="67" end1="68" start2="106" end2="107" changelist="4b38f56b-8c14-4f18-b3aa-ad5838bcb0d0" />
-        <range start1="78" end1="78" start2="117" end2="129" changelist="6fe56170-8318-41fe-9a49-dd3757e0ef16" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/src/RPGRunner.java">
-      <ranges>
-        <range start1="3" end1="3" start2="3" end2="7" changelist="6fe56170-8318-41fe-9a49-dd3757e0ef16" />
-        <range start1="12" end1="19" start2="16" end2="16" changelist="6fe56170-8318-41fe-9a49-dd3757e0ef16" />
-        <range start1="20" end1="27" start2="17" end2="19" changelist="6fe56170-8318-41fe-9a49-dd3757e0ef16" />
-        <range start1="29" end1="36" start2="21" end2="33" changelist="4b38f56b-8c14-4f18-b3aa-ad5838bcb0d0" />
-        <range start1="43" end1="58" start2="40" end2="55" changelist="6fe56170-8318-41fe-9a49-dd3757e0ef16" />
-      </ranges>
-    </file>
   </component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
@@ -93,14 +57,6 @@
       <recent name="" />
     </key>
   </component>
-  <component name="SharedIndexes">
-    <attachedChunks>
-      <set>
-        <option value="bundled-jdk-9823dce3aa75-125ca727e0f0-intellij.indexing.shared.core-IU-243.23654.153" />
-        <option value="bundled-js-predefined-d6986cc7102b-822845ee3bb5-JavaScript-IU-243.23654.153" />
-      </set>
-    </attachedChunks>
-  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -129,7 +85,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/CharClass.java</url>
-          <line>25</line>
+          <line>57</line>
           <properties class="CharClass" method="Attack">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />

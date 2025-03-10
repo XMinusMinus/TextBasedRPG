@@ -4,11 +4,13 @@ import java.util.List;
 public class CharClass extends Character{
     private Stats stats;
     private String[] backpack = new String[32];
-    private Attacks[] attacks = new Attacks[5];
+    private Attacks[] attacks = new Attacks[10];
     private ClassTypes classType;
     private int charStanima;
     private int charMaxStamina;
     private List<Item> inventory;
+    private WepondItem equippedWeapon;
+    private EquipableItems[] equipableItems = new EquipableItems[5];
 
     public CharClass(String name, Professions profession, int charMaxStamina, Stats stats, Attacks[] attacks, ClassTypes classType) {
 
@@ -16,12 +18,42 @@ public class CharClass extends Character{
         this.inventory = new ArrayList<>();
         this.attacks = attacks;
         this.classType = classType;
+        this.equippedWeapon = null;
     }
 
     @Override
     public String toString() {
         return super.GetName() + ", the " + super.GetProfession().toString();
     }
+    public void setEquippable(EquipableItems equippable, int slot){
+        equipableItems[slot] = equippable;
+
+    }
+    public void unsetEquippable(EquipableItems item){
+        for (int i = 0; i < this.equipableItems.length; i++)
+        {
+            if (this.equipableItems[i].equals(item))
+            {
+                this.equipableItems = null;
+                return;
+            }
+        }
+    }
+    public EquipableItems[] getItemsEquiped(){
+        return equipableItems;
+
+    }
+    public WepondItem getEquippedWeapon(){
+        return this.equippedWeapon;
+    }
+    public void setEquippedWeapon(WepondItem weapon){
+        this.equippedWeapon = weapon;
+    }
+    public void unequipWeapon(){
+        addItem(equippedWeapon);
+        this.equippedWeapon = null;
+    }
+
 
     public String Attack(Attacks attack, Npc target, CharClass player)
     {
@@ -54,7 +86,7 @@ public class CharClass extends Character{
         return getStat("StanimaMax");
     }
     public void setStanima(int deduction){
-         this.charStanima = this.charStanima - deduction;
+        this.charStanima = this.charStanima - deduction;
     }
 
     public void addItem(Item item) {
@@ -77,4 +109,22 @@ public class CharClass extends Character{
     public void PresentDialogOption(String dialog){
 
     }
+    public void updateAttacks() {
+        if (equippedWeapon != null) {
+            Attacks[] weaponAttacks = equippedWeapon.getAttacks();
+            for (int i = 0; i < weaponAttacks.length && i < attacks.length; i++) {
+                if (weaponAttacks[i] != null) {
+                    attacks[i] = weaponAttacks[i];
+                }
+            }
+        }
+    }
+
+    public void clearWeaponAttacks() {
+        for (int i = 0; i < attacks.length; i++) {
+            attacks[i] = null;
+        }
+    }
+
 }
+

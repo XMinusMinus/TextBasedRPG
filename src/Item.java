@@ -77,6 +77,10 @@ public class Item implements Comparable<Item>, Comparator<Item> {
     public int getItemAmount() {
         return this.amount;
     }
+
+    public void setItemAmount(int amount){
+        this.amount = this.amount + amount;
+    }
     /**
      * Gets the weight of the item.
      * @return The item's weight.
@@ -129,7 +133,7 @@ public class Item implements Comparable<Item>, Comparator<Item> {
      * TODO: make diff use item methods for using in different contexts? ex. if not in combat, diff effect?
      */
     //@Override
-    public void UseItem() {
+    public void UseItem(CharClass character, Npc npc) {
         // use item code here!
     }
 }

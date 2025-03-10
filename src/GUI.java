@@ -1,7 +1,5 @@
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
+
 public class GUI {
 
     //Display moves in output
@@ -51,7 +49,7 @@ public class GUI {
             world.CheckAdvanceFloor();
         }
         else if(character.getStat("HP") <= 0){
-            System.out.println("You Blacked out!");
+            System.out.println("You blacked out!");
             character.setStat("HP", character.getStat("MAXHP"));
             System.exit(0);
          //   world.GameLossFloorReset();
@@ -64,7 +62,8 @@ public class GUI {
     {
         String displayMessage = "[-------------DAMAGE DEALT-------------]\n";
 
-        String mainInfo = String.format("%s took %f damage!", target.GetName(), damageDealt);
+        float damageDealtRounded = Math.round(damageDealt);
+        String mainInfo = String.format("%s took %f damage!", target.GetName(), damageDealtRounded);
         displayMessage += "\n" + mainInfo;
 
         displayMessage += "\n[^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^]";
@@ -77,12 +76,14 @@ public class GUI {
         return "[-------------PLAYER STATS-------------]\n" +
                 "Name: " + character.GetName() + "\n" +
                 "Profession: " + character.GetProfession() + "\n" +
-                "Stamina: " + character.getcharStanima() + "/" + character.getcharMaxStanima() + "\n" +
-                "HP: " + character.getStat("HP") + "\n" +
-                "Attack: " + character.getStat("Attack") + "\n" +
-                "Defense: " + character.getStat("Defense") + "\n" +
+                "Stamina: " + Math.round(character.getcharStanima()) + "/" + Math.round(character.getcharMaxStanima()) + "\n" +
+                "HP: " + Math.round(character.getStat("HP")) + "\n" +
+                "Attack: " + Math.round(character.getStat("Attack")) + "\n" +
+                "Defense: " + Math.round(character.getStat("Defense")) + "\n" +
                 "[^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^]";
     }
+
+
 
     public String DisplayInventory(CharClass character) {
         List<Item> items = character.getInventory();
@@ -126,13 +127,87 @@ public class GUI {
         return items.get(input);
     }
 
+    public int GetEquipItemSlot(CharClass character, EquipableItems item){
+        EquipableItems[] slots = character.getItemsEquiped();
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println(this.DisplayEquippedItems(slots));
+
+        System.out.println("Please enter a empty slot for " + item.getItemName() + " to be equipped");
+
+        int input = scanner.nextInt() - 1;
+
+        try
+        {
+            if (slots[input] == null)
+            {
+                return input;
+            }
+            else
+            {
+                System.out.println("Please enter a slot that is empty.");
+                return GetEquipItemSlot(character, item);
+            }
+        }
+        catch (Exception e)
+        {
+            System.out.println("Please enter a valid number.");
+            return GetEquipItemSlot(character, item);
+        }
+    }
+
+    public boolean GetEquipWeaponChoice(String ItemName) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Do you wish to equip " + ItemName + "(Y/N)");
+        String input = scanner.next().toUpperCase();
+        boolean equipItem = false;
+
+        // validate input
+        // if its less than 1 or more than the item length, call them out and retry
+        if (!input.equals("Y") && !input.equals("N")) {
+            System.out.println("Sorry, that is not a choice.");
+            GetEquipWeaponChoice(ItemName);
+        }
+        else
+        {
+            if (input.equals("Y"))
+            {
+                equipItem = true;
+            }
+        }
+
+        return equipItem;
+    }
+
+    public String DisplayEquippedItems(EquipableItems[] slots)
+    {
+        String slotText = "";
+
+        for (int i = 0; i < slots.length; i++)
+        {
+            if (slots[i] == null)
+            {
+                slotText += "Slot " + (i + 1) + ": Empty\n";
+            }
+            else
+            {
+                slotText += "Slot " + (i + 1) + ": " + slots[i].getItemName() + "\n";
+            }
+        }
+
+        return "[-------------Item Slots-------------]\n" +
+                slotText +
+                "[^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^]";
+    }
+
     public String DisplayNPCStats(Npc npc) {
         return "[-------------NPC STATS-------------]\n" +
                 "Name: " + npc.GetName() + "\n" +
                 "Description: " + npc.GetDescription() + "\n" +
-                "HP: " + npc.getStat("HP") + "\n" +
-                "Attack: " + npc.getStat("Attack") + "\n" +
-                "Defense: " + npc.getStat("Defense") + "\n" +
+                "HP: " + Math.round(npc.getStat("HP")) + "\n" +
+                "Attack: " + Math.round(npc.getStat("Attack")) + "\n" +
+                "Defense: " + Math.round(npc.getStat("Defense")) + "\n" +
                 "[^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^]";
     }
 

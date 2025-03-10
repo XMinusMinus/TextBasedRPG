@@ -9,6 +9,7 @@ public class WepondItem extends Item {
     private int rarityValue;
     private Stats stats;
     private AttackTypes attackTypes;
+    private Attacks[] attacks = new Attacks[5];
     private int wepondDamage;
     //Default constructor
 
@@ -18,6 +19,7 @@ public class WepondItem extends Item {
         this.wepondDamage = wepondDamage;
 
     }
+
     public AttackTypes getWepondType(){
         return attackTypes;
     }
@@ -33,5 +35,20 @@ public class WepondItem extends Item {
     //public Attacks WepondItemUse(Attacks attacks, int wepondDamage, Stats stats){
 
     //}
+    public Attacks[] getAttacks() {
+        return attacks;
+    }
+    public void setAttacks(Attacks[] attacks) {
+        this.attacks = attacks;
+    }
+    public void WepondActionOnEquip(CharClass character){
+
+    }
+    public void WepondActionOnUnEquip(CharClass character){
+
+    }
+    public void WepondActionOnUse(CharClass character, Npc npc){
+
+    }
 
 }

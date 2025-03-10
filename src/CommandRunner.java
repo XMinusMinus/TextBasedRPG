@@ -37,13 +37,42 @@ public class CommandRunner implements RPGInterface {
     }
 
     @Override
-    public void displayItems(CharClass character) {
+    public void displayItems(CharClass character, Npc npc) {
         System.out.println(gui.DisplayInventory(character));
         Item itemToUse = gui.GetItemFromInventory(character);
+
+        System.out.println(itemToUse instanceof EquipableItems);
+
         if (itemToUse.isItemConsumable()) {
             // remove 1 from item total in inv
+            itemToUse.UseItem(character,npc);
         }
-        itemToUse.UseItem();
+        else if (itemToUse.isItemMainHandEquipable() || itemToUse.isItemOffHandEquipable())
+        {
+            if (itemToUse instanceof WepondItem)
+            {
+                if (gui.GetEquipWeaponChoice(itemToUse.getItemName()))
+                {
+                    WepondItem weapon = (WepondItem) itemToUse;
+                    weapon.WepondActionOnEquip(character);
+                    character.setEquippedWeapon(weapon);
+                    System.out.println(character.getEquippedWeapon().getItemName());
+                    System.out.println("This is the weapon: " + character.getEquippedWeapon().getItemName());
+                }
+            }
+        }
+        else if (itemToUse instanceof EquipableItems)
+        {
+            EquipableItems item = (EquipableItems) itemToUse;
+            int slot = gui.GetEquipItemSlot(character, item);
+            if (item.IsEquipped)
+            {
+                item.UnequipItem(character);
+                character.unsetEquippable(item);
+            }
+            item.EquipItem(character);
+            character.setEquippable(item, slot);
+        }
     }
 
     @Override
@@ -101,7 +130,7 @@ public class CommandRunner implements RPGInterface {
                     gui.BattleCaculation(currentNpc.get(), player, world);
                     break;
                 case "items":
-                    displayItems(player);
+                    displayItems(player,currentNpc.get());
                     break;
                 case "npcstats":
                     displayNPCStats(currentNpc.get());

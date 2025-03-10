@@ -30,6 +30,9 @@ public abstract class Character {
     public void setStat(String statName, double value) {
         stats.setStat(statName, value);
     }
+    public void modifyStat(String statName, double amount) {
+        stats.modifyStat(statName, amount);
+    }
 
     public void addItem(Item item) {
         inventory.add(item);
