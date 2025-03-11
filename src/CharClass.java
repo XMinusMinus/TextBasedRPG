@@ -1,13 +1,12 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class CharClass extends Character{
     private Stats stats;
     private String[] backpack = new String[32];
     private Attacks[] attacks = new Attacks[10];
     private ClassTypes classType;
-    private int charStanima;
-    private int charMaxStamina;
     private List<Item> inventory;
     private WepondItem equippedWeapon;
     private EquipableItems[] equipableItems = new EquipableItems[5];
@@ -57,18 +56,25 @@ public class CharClass extends Character{
 
     public String Attack(Attacks attack, Npc target, CharClass player)
     {
-        if(getcharStanima() >= attack.getAttackStanUsage()) {
-            double damage = attack.getBaseDamage() *  player.getStat("Attack")/ target.getStat("Defense");
-            double damageBonus = this.classType.getDamageMultiplier(attack.getAttackType());
-            setStanima(attack.getAttackStanUsage());
-            double npcCurrentHP = target.getStat("HP");
-            double afterAttack = npcCurrentHP - damage * damageBonus;
-            target.setStat("HP",afterAttack);
-            //target.TakeDamage(damage, attack.getAttackType());
-            return super.GetName() +" used "+ attack.toString() + " which did " + damage + " to " + target.toString();
+        if(getcharStamina() >= attack.getAttackStanUsage()) {
+            Random random = new Random();
+            if (random.nextInt(100) <= attack.getAttackAccuracy()) {
+                double damage = attack.getBaseDamage() *  player.getStat("Attack")/ target.getStat("Defense");
+                double damageBonus = this.classType.getDamageMultiplier(attack.getAttackType());
+                setStamina(attack.getAttackStanUsage());
+                double npcCurrentHP = target.getStat("HP");
+                double afterAttack = npcCurrentHP - damage * damageBonus;
+                target.setStat("HP",afterAttack);
+                //target.TakeDamage(damage, attack.getAttackType());
+                return super.GetName() +" used "+ attack.toString() + " which did " + damage + " to " + target.toString();
+            }
+            else {
+                setStamina(attack.getAttackStanUsage());
+                return super.GetName() +" used "+ attack.toString() + ", but the attack missed!";
+            }
         }
         else{
-            return super.GetName() + " Does not have stamina for this move";
+            return super.GetName() + " does not have stamina for this move";
         }
     }
 
@@ -79,14 +85,15 @@ public class CharClass extends Character{
         return attacks;
     }
 
-    public double getcharStanima(){
-        return getStat("Stanima");
+    public double getcharStamina(){
+        return getStat("Stamina");
     }
-    public double getcharMaxStanima(){
-        return getStat("StanimaMax");
+    public double getcharMaxStamina(){
+        return getStat("StaminaMax");
     }
-    public void setStanima(int deduction){
-        this.charStanima = this.charStanima - deduction;
+    public void setStamina(int deduction)
+    {
+        setStat("Stamina", getcharStamina() - deduction);
     }
 
     public void addItem(Item item) {

@@ -6,7 +6,7 @@ public abstract class Character {
     private Stats stats;
     private List<Item> inventory;
 
-    public Character(String name, Professions professions, int charMaxStanima, Stats stats){
+    public Character(String name, Professions professions, int charMaxStamina, Stats stats){
         this.name = name;
         this.profession = professions;
         this.stats = stats;

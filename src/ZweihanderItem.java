@@ -8,7 +8,7 @@ public class ZweihanderItem extends WepondItem{
         character.modifyStat("Attack",5);
         character.modifyStat("Defense",32);
         Attacks[] attacks = new Attacks[]{
-                new Attacks(AttackTypes.RANGED, "Z-Move", 500, 1)
+                new Attacks(AttackTypes.RANGED, "Z-Move", 500, 1,5)
         };
         setAttacks(attacks);
         character.updateAttacks();

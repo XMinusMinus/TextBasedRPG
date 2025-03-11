@@ -7,8 +7,8 @@ public class IronSwordItem extends WepondItem{
     public void WepondActionOnEquip(CharClass character){
         character.modifyStat("Attack",20);
         Attacks[] attacks = new Attacks[]{
-                new Attacks(AttackTypes.MELEE, "Iron Sword Swipe", 10, 1),
-                new Attacks(AttackTypes.MELEE, "Iron Sword Blow", 11,1)
+                new Attacks(AttackTypes.MELEE, "Iron Sword Swipe", 10, 1,5),
+                new Attacks(AttackTypes.MELEE, "Iron Sword Blow", 11,1,5)
         };
         setAttacks(attacks);
         character.updateAttacks();

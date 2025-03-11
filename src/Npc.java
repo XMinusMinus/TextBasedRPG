@@ -228,9 +228,10 @@ public class Npc {
     }
 
     public void choseRandomAttack(CharClass target, Npc npc){
-        Attacks[] attacks = getAttacks();
+        Attacks[] attacks = npc.getAttacks();
         Random rand = new Random();
-        int index = rand.nextInt(attacks.length);
+        int index = rand.nextInt(npc.getAttacks().length);
+        System.out.println(attacks[index].getAttackName());
         Attack(attacks[index],target, npc);
     }
 

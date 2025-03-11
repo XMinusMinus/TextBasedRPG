@@ -6,15 +6,15 @@ public class StaminaPotionItem extends Item{
 
     @Override
     public void UseItem(CharClass character, Npc npc){
-        double playermax = character.getStat("StanimaMax");
-        double playercurrent = character.getStat("Stanima");
+        double playermax = character.getStat("StaminaMax");
+        double playercurrent = character.getStat("Stamina");
         double applystamina = playercurrent + 20;
         if(applystamina <= playermax){
-            character.setStat("Stanima", applystamina);
+            character.setStat("Stamina", applystamina);
             setItemAmount(-1);
         }
         else{
-            character.setStat("Stanima", playermax);
+            character.setStat("Stamina", playermax);
             setItemAmount(-1);
         }
     }

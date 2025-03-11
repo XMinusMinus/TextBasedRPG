@@ -219,33 +219,33 @@ public class DatabaseLoad {
                 insertStat.setNull(3,Types.INTEGER);
                 insertStat.executeUpdate();
 
-                insertStat.setString(1,"Stanima");
+                insertStat.setString(1,"Stamina");
                 insertStat.setInt(2,60);
                 insertStat.setInt(4,1);
                 insertStat.setNull(3,Types.INTEGER);
                 insertStat.executeUpdate();
-                insertStat.setString(1,"Stanima");
+                insertStat.setString(1,"Stamina");
                 insertStat.setInt(2,70);
                 insertStat.setInt(4,2);
                 insertStat.setNull(3,Types.INTEGER);
                 insertStat.executeUpdate();
-                insertStat.setString(1,"Stanima");
+                insertStat.setString(1,"Stamina");
                 insertStat.setInt(2,20);
                 insertStat.setInt(4,3);
                 insertStat.setNull(3,Types.INTEGER);
                 insertStat.executeUpdate();
 
-                insertStat.setString(1,"StanimaMax");
+                insertStat.setString(1,"StaminaMax");
                 insertStat.setInt(2,60);
                 insertStat.setInt(4,1);
                 insertStat.setNull(3,Types.INTEGER);
                 insertStat.executeUpdate();
-                insertStat.setString(1,"StanimaMax");
+                insertStat.setString(1,"StaminaMax");
                 insertStat.setInt(2,70);
                 insertStat.setInt(4,2);
                 insertStat.setNull(3,Types.INTEGER);
                 insertStat.executeUpdate();
-                insertStat.setString(1,"StanimaMax");
+                insertStat.setString(1,"StaminaMax");
                 insertStat.setInt(2,20);
                 insertStat.setInt(4,3);
                 insertStat.setNull(3,Types.INTEGER);
@@ -285,7 +285,7 @@ public class DatabaseLoad {
         return rs.getString("name");
     }
 
-    public int getPlayerstanima(String name) throws SQLException {
+    public int getPlayerStamina(String name) throws SQLException {
         ResultSet rs = stmt.executeQuery("select name,charmaxstamina from playerclass where name = '"+name+"'");
         rs.next();
         return rs.getInt("charmaxstamina") ;

@@ -14,7 +14,7 @@ public class World {
         this.worldPassed = true;
         System.out.println("  ✦ ✧ ✦ WORLD CLEARED! ✦ ✧ ✦  ");
         System.out.println("══════════════════════════════");
-        System.out.println(String.format("  You have conquered World #%d!  ", WorldNumber));
+        System.out.println(String.format("  You have conquered World #%d!  ", WorldNumber ));
         System.out.println("══════════════════════════════");
     }
 
@@ -26,11 +26,23 @@ public class World {
     public void AdvanceFloor()
     {
         this.currentFloorNumber++;
+        System.out.println("PASSED FLOOR");
 
         if (this.floors.length < currentFloorNumber)
         {
+            System.out.println("PASSED WORLD");
             PassWorld();
         }
+    }
+
+    public boolean IsPassed()
+    {
+        return this.worldPassed;
+    }
+
+    public int getWorldNumber()
+    {
+        return this.WorldNumber;
     }
 
     /**
@@ -40,6 +52,7 @@ public class World {
      */
     public void CheckAdvanceFloor()
     {
+        System.out.println("Check Advance Floor has been ran");
         this.floors[this.currentFloorNumber-1].removeDeadMobs();
         Floor floor = this.floors[this.currentFloorNumber-1];
 
@@ -108,6 +121,7 @@ public class World {
     {
         Npc[] remainingNpcs = getCurrentFloorNpcs();
         Npc currentNPC = null;
+        System.out.println("Getting current NPC");
 
         for (Npc n : remainingNpcs)
         {
@@ -138,11 +152,12 @@ public class World {
     //endregion
 
     // constructor
-    public World(CharClass user, double difficultyLevel, Floor[] floors, boolean isSpecial, WorldType worldType){
+    public World(CharClass user, double difficultyLevel, Floor[] floors, boolean isSpecial, WorldType worldType, int worldNumber){
         this.user = user;
         this.difficultyLevel = difficultyLevel;
         this.floors = floors;
         this.isSpecial = isSpecial;
         this.worldType = worldType;
+        this.WorldNumber = worldNumber;
     }
 }

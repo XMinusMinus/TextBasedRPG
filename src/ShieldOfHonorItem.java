@@ -8,8 +8,8 @@ public class ShieldOfHonorItem extends WepondItem{
         character.setStat("Defense", 24);
         character.setStat("Attack", 12);
         Attacks[] attacks = new Attacks[]{
-                new Attacks(AttackTypes.RANGED, "Shield Throw", 30, 1),
-                new Attacks(AttackTypes.MELEE, "Shield Bash", 15,1)
+                new Attacks(AttackTypes.RANGED, "Shield Throw", 30, 1,5),
+                new Attacks(AttackTypes.MELEE, "Shield Bash", 15,1,5)
         };
         setAttacks(attacks);
         character.updateAttacks();

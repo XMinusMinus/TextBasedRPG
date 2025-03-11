@@ -1,0 +1,23 @@
+Name: Hero
+Class: WARRIOR
+HP: 119480
+MAXHP: 12000
+Attack: 2500
+Defense: 3500
+Magic Power: 15
+Stamina: 405
+StaminaMax: 800
+
+Attacks:
+Potion Throw, RANGED, 10, 100
+Knife Throw, RANGED, 11, 100
+Slingshot, RANGED, 12, 100
+Rock Throw, RANGED, 13, 100
+Spear Throw, RANGED, 500, 100
+Fireball, MAGIC, 30, 15
+
+Items:
+Health Potion, 2
+Iron Sword, 1
+Shield of Honor, 1
+Stamina Potion, 2

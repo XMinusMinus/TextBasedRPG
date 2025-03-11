@@ -24,7 +24,6 @@ public class RPGRunner  {
           //CharClass player = null;
           CharClass player = loadCharacter();
           Function<String,Integer> f1 = String::length;
-          System.out.println(f1.apply("hello"));
 
           Stats playerSt = new Stats();
 
@@ -36,15 +35,15 @@ public class RPGRunner  {
           setStats.accept("Attack", 20);
           setStats.accept("Defense", 30);
           setStats.accept("Magic Power", 10);
-          setStats.accept("Stanima", 100);
-          setStats.accept("StanimaMax", 100);
+          setStats.accept("Stamina", 100);
+          setStats.accept("StaminaMax", 100);
 
           Attacks[] attack = new Attacks[]{
-                  new Attacks(AttackTypes.RANGED, "Potion Throw", 10, 1),
-                  new Attacks(AttackTypes.RANGED, "Knife Throw", 11,1),
-                  new Attacks(AttackTypes.RANGED, "Slingshot", 12, 1),
-                  new Attacks(AttackTypes.RANGED, "Rock Throw", 13, 1),
-                  new Attacks(AttackTypes.RANGED, "Spear Throw", 500, 1)
+                  new Attacks(AttackTypes.RANGED, "Potion Throw", 10, 1,10),
+                  new Attacks(AttackTypes.RANGED, "Knife Throw", 11,1,5),
+                  new Attacks(AttackTypes.RANGED, "Slingshot", 12, 1,10),
+                  new Attacks(AttackTypes.RANGED, "Rock Throw", 13, 1,5),
+                  new Attacks(AttackTypes.RANGED, "Spear Throw", 500, 1,5)
           };
        //   System.out.println("Ordered HashMap:");
       //   HashMap<Effects, CharClass> activeEffects = new HashMap<>();
@@ -64,11 +63,11 @@ public class RPGRunner  {
 
           //npcattacks is used to hold all the npcs attacks
           Attacks[] npcattacks = new Attacks[]{
-                  new Attacks(AttackTypes.RANGED, "Potion Throw", 10, 1),
-                  new Attacks(AttackTypes.RANGED, "Knife Throw", 11,1),
-                  new Attacks(AttackTypes.RANGED, "Slingshot", 12, 1),
-                  new Attacks(AttackTypes.RANGED, "Rock Throw", 13, 1),
-                  new Attacks(AttackTypes.RANGED, "Spear Throw", 13, 1)
+                  new Attacks(AttackTypes.RANGED, "Potion Throw", 10, 1,5),
+                  new Attacks(AttackTypes.RANGED, "Knife Throw", 11,1,5),
+                  new Attacks(AttackTypes.RANGED, "Slingshot", 12, 1,5),
+                  new Attacks(AttackTypes.RANGED, "Rock Throw", 13, 1,5),
+                  new Attacks(AttackTypes.RANGED, "Spear Throw", 13, 1,5)
           };
        //   DatabaseLoad dl = new DatabaseLoad();
 
@@ -113,9 +112,6 @@ public class RPGRunner  {
           npcStats2.setStat("Defense", 25);
           npcStats2.setStat("Magic Power", 0);
 
-          System.out.println(npcStats);
-          System.out.println(npcStats1);
-
           //creates the players stats for a selected class
           Stats playerStats = new Stats();
           playerStats.setStat("HP", 100);
@@ -123,16 +119,35 @@ public class RPGRunner  {
           playerStats.setStat("Attack", 20);
           playerStats.setStat("Defense", 30);
           playerStats.setStat("Magic Power", 10);
-          playerStats.setStat("Stanima", 100);
-          playerStats.setStat("StanimaMax", 100);
+          playerStats.setStat("Stamina", 100);
+          playerStats.setStat("StaminaMax", 100);
+
+          //creates stats for npc created
+          Stats npcStatsW2 = new Stats();
+          npcStatsW2.setStat("HP", 100);
+          npcStatsW2.setStat("Attack", 10);
+          npcStatsW2.setStat("Defense", 25);
+          npcStatsW2.setStat("Magic Power", 0);
+
+          Stats npcStats1W2 = new Stats();
+          npcStats1W2.setStat("HP", 100);
+          npcStats1W2.setStat("Attack", 100);
+          npcStats1W2.setStat("Defense", 25);
+          npcStats1W2.setStat("Magic Power", 0);
+
+          Stats npcStats2W2 = new Stats();
+          npcStats2W2.setStat("HP", 2000);
+          npcStats2W2.setStat("Attack", 100);
+          npcStats2W2.setStat("Defense", 25);
+          npcStats2W2.setStat("Magic Power", 0);
 
           //attacks is used to hold all of the players attacks
           Attacks[] attacks = new Attacks[]{
-                  new Attacks(AttackTypes.RANGED, "Potion Throw", 10, 1),
-                  new Attacks(AttackTypes.RANGED, "Knife Throw", 11,1),
-                  new Attacks(AttackTypes.RANGED, "Slingshot", 12, 1),
-                  new Attacks(AttackTypes.RANGED, "Rock Throw", 13, 1),
-                  new Attacks(AttackTypes.RANGED, "Spear Throw", 500, 1)
+                  new Attacks(AttackTypes.RANGED, "Potion Throw", 10, 1,5),
+                  new Attacks(AttackTypes.RANGED, "Knife Throw", 11,1,5),
+                  new Attacks(AttackTypes.RANGED, "Slingshot", 12, 1,5),
+                  new Attacks(AttackTypes.RANGED, "Rock Throw", 13, 1,5),
+                  new Attacks(AttackTypes.RANGED, "Spear Throw", 500, 1,5)
           };
 
          // System.out.println(playerStats);
@@ -184,9 +199,10 @@ public class RPGRunner  {
           Npc shadow = new Npc("Shadow", "a ghost like shadow appears in front of you", false, npcStats1, new HashMap<String, String>() {}, npcattacks);
           Npc goblin = new Npc("Goblin", "a little green monster appears in front of you", false, npcStats2, new HashMap<String, String>() {}, npcattacks);
           Npc guard = new Npc("Guard", "A strong warrior", false, npcStats, new HashMap<String, String>(){}, npcattacks);
-          System.out.println(guard);
-          System.out.println(shadow);
-          System.out.println(goblin);
+
+          Npc shadowW2 = new Npc("ShadowW2", "a ghost like shadow appears in front of you", false, npcStats1W2, new HashMap<String, String>() {}, npcattacks);
+          Npc goblinW2 = new Npc("GoblinW2", "a little green monster appears in front of you", false, npcStats2W2, new HashMap<String, String>() {}, npcattacks);
+          Npc guardW2 = new Npc("GuardW2", "A strong warrior", false, npcStatsW2, new HashMap<String, String>(){}, npcattacks);
 
 
        //   ResultSet npcstatrs = dl.getNPCstats();
@@ -202,15 +218,33 @@ public class RPGRunner  {
                   goblin
           };
 
+          Npc[] npcsW2 = new Npc[]{
+                  guardW2,
+                  shadowW2,
+                  goblinW2
+          };
+
           //Floors for world 1
           Floor[] floors = new Floor[]{
                   new Floor(npcs)
           };
 
+          Floor[] floorsW2 = new Floor[]{
+                  new Floor(npcsW2)
+          };
+
           //instantiation of world 1
-          World world1 = new World(player, 1, floors,false, WorldType.NORMAL);
+          World world1 = new World(player, 1, floors,false, WorldType.NORMAL, 1);
           //CommandRunner allows the player to use the games interfaces
-          CommandRunner game = new CommandRunner(player, world1.getCurrentNpc(), world1);
+
+          World world2 = new World(player, 1, floorsW2, false, WorldType.NORMAL, 2);
+
+          World[] worlds = new World[]{
+                  world1,
+                  world2
+          };
+
+          CommandRunner game = new CommandRunner(player, world1.getCurrentNpc(), worlds);
           game.run();
       }
       catch(ArrayStoreException exception){
@@ -363,7 +397,7 @@ public class RPGRunner  {
                  AttackTypes type = AttackTypes.valueOf(parts[1].trim().toUpperCase());
                  int damage = Integer.parseInt(parts[2].trim());
                  int cooldown = Integer.parseInt(parts[3].trim());
-                 attacks.add(new Attacks(type, attackName, damage, cooldown));
+                 attacks.add(new Attacks(type, attackName, damage, cooldown,5));
              }
          } else if (readingItems) {
              String[] parts = line.split(",");

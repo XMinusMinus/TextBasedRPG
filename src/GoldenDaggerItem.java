@@ -7,8 +7,8 @@ public class GoldenDaggerItem extends WepondItem{
     public void WepondActionOnEquip(CharClass character){
         character.modifyStat("Attack",10);
         Attacks[] attacks = new Attacks[]{
-                new Attacks(AttackTypes.MELEE, "Golden Stab", 5, 1),
-                new Attacks(AttackTypes.MELEE, "Golden Pierce", 15,1)
+                new Attacks(AttackTypes.MELEE, "Golden Stab", 5, 1,5),
+                new Attacks(AttackTypes.MELEE, "Golden Pierce", 15,1,5)
         };
         setAttacks(attacks);
         character.updateAttacks();

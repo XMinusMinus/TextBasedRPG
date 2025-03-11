@@ -10,9 +10,10 @@ public class GUI {
         String displayMessage = "[-------------AVAILABLE ATTACKS-------------]\n";
         for (int i = 0; i < attacks.length; i++)
         {
-            displayMessage += "\n" + (i + 1) + ". " + attacks[i].getAttackName()+": Power "+ attacks[i].getBaseDamage();
+            displayMessage += "\n" + (i + 1) + ". " + attacks[i].getAttackName()+": Power "+ attacks[i].getBaseDamage() + ", Stamina " + attacks[i].getAttackStanUsage() + ", Accuracy " + attacks[i].getAttackAccuracy();
         }
 
+        displayMessage += "\n You have " + character.getcharStamina() + " Stamina.";
         displayMessage += "\n[^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^]";
 
         return displayMessage;
@@ -40,6 +41,9 @@ public class GUI {
         return attacks[input];
     }
     public void BattleCaculation(Npc npc, CharClass character, World world){
+        System.out.println("Battle calculation started.");
+        System.out.println(npc.GetIsPassive());
+        System.out.println(npc.getStat("HP"));
         if(npc.GetIsPassive() == true){
             System.out.println(npc.GetName()+": Has let you pass to the next floor.");
             world.CheckAdvanceFloor();
@@ -76,7 +80,7 @@ public class GUI {
         return "[-------------PLAYER STATS-------------]\n" +
                 "Name: " + character.GetName() + "\n" +
                 "Profession: " + character.GetProfession() + "\n" +
-                "Stamina: " + Math.round(character.getcharStanima()) + "/" + Math.round(character.getcharMaxStanima()) + "\n" +
+                "Stamina: " + Math.round(character.getcharStamina()) + "/" + Math.round(character.getcharMaxStamina()) + "\n" +
                 "HP: " + Math.round(character.getStat("HP")) + "\n" +
                 "Attack: " + Math.round(character.getStat("Attack")) + "\n" +
                 "Defense: " + Math.round(character.getStat("Defense")) + "\n" +

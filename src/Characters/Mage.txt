@@ -1,0 +1,23 @@
+Name: Mage
+Class: MAGE
+HP: 120
+MAXHP: 120
+Attack: 25
+Defense: 35
+Magic Power: 15
+Stamina: 100
+StaminaMax: 100
+
+Attacks:
+Potion Throw, RANGED, 10, 0
+Knife Throw, RANGED, 11, 0
+Slingshot, RANGED, 12, 0
+Rock Throw, RANGED, 13, 0
+Spear Throw, RANGED, 500, 0
+Fireball, MAGIC, 30, 0
+
+Items:
+Health Potion, 3
+Iron Sword, 1
+Shield of Honor, 1
+Stamina Potion, 2

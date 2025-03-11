@@ -17,16 +17,17 @@ public class Attacks {
     private int attackStanUsage;
     /**
      * The accuracy of the attack.
-     * TODO: how does accuracy impact damage forumla?
+     * 100 = 100% accuracy, 0 = 0% accuracy
      */
     private double attackAccuracy;
 
 
-    public Attacks(AttackTypes attackType, String attackName, int baseDamage, double attackAccuracy)
+    public Attacks(AttackTypes attackType, String attackName, int baseDamage, double attackAccuracy, int attackStanUsage)
     {
         this.attackType = attackType;
         this.attackName = attackName;
         this.baseDamage = baseDamage;
+        this.attackStanUsage = attackStanUsage;
         this.attackAccuracy = attackAccuracy;
     }
     /**
@@ -62,7 +63,7 @@ public class Attacks {
     }
 
     @Override
-    public String toString(){return getAttackName();}
+    public String toString(){ return getAttackName(); }
     /**
      * Gets the chance for the attack to land.
      * @return The accuracy of the attack.
