@@ -1,0 +1,19 @@
+Name: Brutus
+Class: WARRIOR
+HP: 400
+MAXHP: 400
+Attack: 30
+Defense: 25
+Magic Power: 0
+Speed: 10
+Stamina: 550
+StaminaMax: 800
+
+Attacks:
+Heavy Blow, MELEE, 60, 50, 25
+Upper Cut, MELEE, 25, 75, 5
+Basic Punch, MELEE, 5, 100, 0
+
+Items:
+Health Potion, 5
+Stamina Potion, 4

@@ -1,0 +1,18 @@
+Name: TheDarkKnight
+Class: WARRIOR
+HP: 300
+MAXHP: 300
+Attack: 20
+Defense: 20
+Magic Power: 0
+Speed: 20
+Stamina: 400
+StaminaMax: 400
+
+Attacks:
+Basic Slash, MELEE, 5, 100, 0
+
+Items:
+Iron Sword, 1
+Health Potion, 5
+Stamina Potion, 5

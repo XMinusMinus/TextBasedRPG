@@ -41,9 +41,7 @@ public class GUI {
         return attacks[input];
     }
     public void BattleCaculation(Npc npc, CharClass character, World world){
-        System.out.println("Battle calculation started.");
-        System.out.println(npc.GetIsPassive());
-        System.out.println(npc.getStat("HP"));
+
         if(npc.GetIsPassive() == true){
             System.out.println(npc.GetName()+": Has let you pass to the next floor.");
             world.CheckAdvanceFloor();
@@ -84,6 +82,7 @@ public class GUI {
                 "HP: " + Math.round(character.getStat("HP")) + "\n" +
                 "Attack: " + Math.round(character.getStat("Attack")) + "\n" +
                 "Defense: " + Math.round(character.getStat("Defense")) + "\n" +
+                "Speed: " + Math.round(character.getStat("Speed")) + "\n" +
                 "[^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^]";
     }
 
@@ -184,6 +183,30 @@ public class GUI {
         return equipItem;
     }
 
+    public boolean GetUnequipWeaponChoice(String ItemName) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println(ItemName + " is currently equipped, do you wish to unequip it? (Y/N)");
+        String input = scanner.next().toUpperCase();
+        boolean unequipItem = false;
+
+        // validate input
+        // if its less than 1 or more than the item length, call them out and retry
+        if (!input.equals("Y") && !input.equals("N")) {
+            System.out.println("Sorry, that is not a choice.");
+            GetUnequipWeaponChoice(ItemName);
+        }
+        else
+        {
+            if (input.equals("Y"))
+            {
+                unequipItem = true;
+            }
+        }
+
+        return unequipItem;
+    }
+
     public String DisplayEquippedItems(EquipableItems[] slots)
     {
         String slotText = "";
@@ -212,6 +235,7 @@ public class GUI {
                 "HP: " + Math.round(npc.getStat("HP")) + "\n" +
                 "Attack: " + Math.round(npc.getStat("Attack")) + "\n" +
                 "Defense: " + Math.round(npc.getStat("Defense")) + "\n" +
+                "Speed: " + Math.round(npc.getStat("Speed")) + "\n" +
                 "[^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^]";
     }
 

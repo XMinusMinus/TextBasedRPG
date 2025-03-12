@@ -50,5 +50,8 @@ public class WepondItem extends Item {
     public void WepondActionOnUse(CharClass character, Npc npc){
 
     }
+    //public Attacks getWepondAttacks(){
+        //return
+    //}
 
 }

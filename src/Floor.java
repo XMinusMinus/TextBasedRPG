@@ -21,17 +21,11 @@ public class Floor {
 
             if (n.getStat("HP") <= 0)
             {
-                System.out.println("Removing " + n.GetName());
-                System.out.println(n.getStat("HP"));
                 mobsIterator.remove();
-                System.out.println("Removed");
             }
         }
 
-        System.out.println("Finished with loop");
-
         this.remainingMobs = mobsList.toArray(new Npc[mobsList.size()]);
-        System.out.println(Arrays.toString(remainingMobs));
     }
 
     public Npc[] getRemainingMobs() {

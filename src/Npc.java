@@ -231,10 +231,13 @@ public class Npc {
         Attacks[] attacks = npc.getAttacks();
         Random rand = new Random();
         int index = rand.nextInt(npc.getAttacks().length);
-        System.out.println(attacks[index].getAttackName());
-        Attack(attacks[index],target, npc);
+        System.out.println(Attack(attacks[index],target, npc));
     }
 
     @Override
     public String toString(){return GetName();}
+
+    public void modifyStat(String statName, double amount) {
+        stats.modifyStat(statName, amount);
+    }
 }

@@ -6,17 +6,15 @@ public class GoldenDaggerItem extends WepondItem{
     @Override
     public void WepondActionOnEquip(CharClass character){
         character.modifyStat("Attack",10);
-        Attacks[] attacks = new Attacks[]{
-                new Attacks(AttackTypes.MELEE, "Golden Stab", 5, 1,5),
-                new Attacks(AttackTypes.MELEE, "Golden Pierce", 15,1,5)
-        };
-        setAttacks(attacks);
-        character.updateAttacks();
+        character.addAttack(new Attacks(AttackTypes.MELEE, "Golden Stab", 5, 1,5));
+        character.addAttack(new Attacks(AttackTypes.MELEE, "Golden Pierce", 15,1,5));
     }
+
     @Override
     public void WepondActionOnUnEquip(CharClass character){
         character.modifyStat("Attack", -10);
-        character.clearWeaponAttacks();
+        character.removeAttack("Golden Stab");
+        character.removeAttack("Golden Pierce");
     }
     @Override
     public void WepondActionOnUse(CharClass character, Npc npc){

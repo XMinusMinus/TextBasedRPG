@@ -5,19 +5,17 @@ public class ShieldOfHonorItem extends WepondItem{
     }
     @Override
     public void WepondActionOnEquip(CharClass character){
-        character.setStat("Defense", 24);
-        character.setStat("Attack", 12);
-        Attacks[] attacks = new Attacks[]{
-                new Attacks(AttackTypes.RANGED, "Shield Throw", 30, 1,5),
-                new Attacks(AttackTypes.MELEE, "Shield Bash", 15,1,5)
-        };
-        setAttacks(attacks);
-        character.updateAttacks();
+        character.modifyStat("Attack",5);
+        character.modifyStat("Defense",32);
+        character.addAttack(new Attacks(AttackTypes.RANGED, "Shield Throw", 30, 1,5));
+        character.addAttack(new Attacks(AttackTypes.MELEE, "Shield Bash", 15,1,5));
     }
+
     @Override
     public void WepondActionOnUnEquip(CharClass character){
         character.setStat("Defense", -24);
         character.setStat("Attack", -12);
-        character.clearWeaponAttacks();
+        character.removeAttack("Shield Throw");
+        character.removeAttack("Shield Bash");
     }
 }

@@ -1,0 +1,21 @@
+Name: GreenArrow
+Class: ARCHER
+HP: 200
+MAXHP: 200
+Attack: 20
+Defense: 10
+Magic Power: 5
+Speed: 25
+Stamina: 500
+StaminaMax: 500
+
+Attacks:
+Arrow Shot, RANGED, 15, 100, 5
+Explosion Arrow, RANGED, 30, 75, 25
+Bow Slash, MELEE, 5, 100, 0
+
+Items:
+Health Potion, 5
+Stamina Potion, 5
+Bow, 1
+

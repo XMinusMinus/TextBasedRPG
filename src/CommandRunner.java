@@ -52,8 +52,24 @@ public class CommandRunner implements RPGInterface {
     public void displayAttacks(CharClass character, Npc npc, World world) {
         System.out.println(gui.DisplayMoveChoices(character));
         Attacks plyAttack = gui.MakeMoveChoice(character);
-        System.out.println(character.Attack(plyAttack, npc, character));
-        System.out.println(npc.Attack(plyAttack, character, npc));
+        if(npc.getStat("HP") > 0) {
+            if (character.getStat("Speed") >= npc.getStat("Speed")) {
+                System.out.println(character.Attack(plyAttack, npc, character));
+                if (npc.getStat("HP") > 0) {
+                    npc.choseRandomAttack(player, npc);
+                }
+            } else {
+                npc.choseRandomAttack(player, npc);
+                if (character.getStat("HP") > 0) {
+                    System.out.println(character.Attack(plyAttack, npc, character));
+                }
+            }
+        }
+        else{
+            System.out.println(npc.GetName() +"has been killed");
+        }
+
+        // System.out.println(npc.Attack(plyAttack, character, npc));
         // gui.BattleCaculation(npc,character,world);
     }
 
@@ -72,13 +88,29 @@ public class CommandRunner implements RPGInterface {
         {
             if (itemToUse instanceof WepondItem)
             {
-                if (gui.GetEquipWeaponChoice(itemToUse.getItemName()))
+                if (character.getEquippedWeapon() == null)
                 {
-                    WepondItem weapon = (WepondItem) itemToUse;
-                    weapon.WepondActionOnEquip(character);
-                    character.setEquippedWeapon(weapon);
-                    System.out.println(character.getEquippedWeapon().getItemName());
-                    System.out.println("This is the weapon: " + character.getEquippedWeapon().getItemName());
+                    if (gui.GetEquipWeaponChoice(itemToUse.getItemName()))
+                    {
+                        WepondItem weapon = (WepondItem) itemToUse;
+                        weapon.WepondActionOnEquip(character);
+                        character.setEquippedWeapon(weapon);
+                    }
+                }
+                else
+                {
+                    if (gui.GetUnequipWeaponChoice(character.getEquippedWeapon().getItemName()))
+                    {
+                        character.getEquippedWeapon().WepondActionOnUnEquip(character);
+                        character.unequipWeapon();
+
+                        if (gui.GetEquipWeaponChoice(itemToUse.getItemName()))
+                        {
+                            WepondItem weapon = (WepondItem) itemToUse;
+                            weapon.WepondActionOnEquip(character);
+                            character.setEquippedWeapon(weapon);
+                        }
+                    }
                 }
             }
         }
@@ -149,9 +181,9 @@ public class CommandRunner implements RPGInterface {
                     displayStats(player);
                     break;
                 case "attacks":
+                    gui.DisplayMoveChoices(player);
                     displayAttacks(player, currentNpc, currentWorld);
-                    currentNpc.choseRandomAttack(player, currentNpc);
-                    System.out.println("Battle Calculation started.");
+                    System.out.println(player.getAttacks().toString());
                     gui.BattleCaculation(currentNpc, player, currentWorld);
                     break;
                 case "items":
@@ -196,11 +228,16 @@ public class CommandRunner implements RPGInterface {
             return;
         }
 
+        if (player.getEquippedWeapon() != null)
+        {
+            player.getEquippedWeapon().WepondActionOnUnEquip(player);
+            player.unequipWeapon();
+        }
+
         String currentDirectory = new File("").getAbsolutePath();
         File characterFile = new File(currentDirectory + File.separator + "src"+File.separator+"Characters"+ File.separator + characterName + ".txt");
 
         try (FileWriter writer = new FileWriter(characterFile)) {
-
             writer.write("Name: " + player.GetName() + "\n");
             writer.write("Class: " + player.getClassType() + "\n");
             writer.write("HP: " + ((int) player.getStat("HP")) + "\n");
@@ -208,6 +245,7 @@ public class CommandRunner implements RPGInterface {
             writer.write("Attack: " + ((int) player.getStat("Attack")) + "\n");
             writer.write("Defense: " + ((int) player.getStat("Defense")) + "\n");
             writer.write("Magic Power: " + ((int) player.getStat("Magic Power")) + "\n");
+            writer.write("Speed: " + ((int) player.getStat("Speed")) + "\n");
             writer.write("Stamina: " + ((int) player.getcharStamina()) + "\n");
             writer.write("StaminaMax: " + ((int) player.getcharMaxStamina()) + "\n\n");
 
@@ -215,7 +253,8 @@ public class CommandRunner implements RPGInterface {
             for (Attacks attack : player.getAttacks()) {
                 if (attack != null) {
                     writer.write(attack.getAttackName() + ", " + attack.getAttackType() + ", " +
-                            attack.getBaseDamage() + ", " + ((int) attack.getAttackAccuracy()) + "\n");
+                            attack.getBaseDamage() + ", " +  ((int) attack.getAttackAccuracy()) +
+                            ", " + attack.getAttackStanUsage() +"\n");
                 }
             }
 
@@ -271,7 +310,10 @@ public class CommandRunner implements RPGInterface {
             for (Attacks attack : player.getAttacks()) {
                 if (attack != null) {
                     writer.write(attack.getAttackName() + ", " + attack.getAttackType() + ", " +
-                            attack.getBaseDamage() + ", " + ((int) attack.getAttackAccuracy()) + "\n");
+                            attack.getBaseDamage() + ", " + ((int) attack.getAttackAccuracy())
+                            + ", " +  attack.getAttackStanUsage() + "\n");
+
+
                 }
             }
 

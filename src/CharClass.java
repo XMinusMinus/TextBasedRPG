@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
@@ -48,8 +49,8 @@ public class CharClass extends Character{
     public void setEquippedWeapon(WepondItem weapon){
         this.equippedWeapon = weapon;
     }
+
     public void unequipWeapon(){
-        addItem(equippedWeapon);
         this.equippedWeapon = null;
     }
 
@@ -125,6 +126,22 @@ public class CharClass extends Character{
                 }
             }
         }
+    }
+
+    public void removeAttack(String name) {
+        this.attacks = Arrays.stream(attacks)
+                .filter(attack -> !attack.getAttackName().equals(name))
+                .toArray(Attacks[]::new);
+    }
+
+
+    public void addAttack(Attacks newAttack) {
+        int newSize = this.attacks.length + 1;
+        Attacks[] newAttacks = new Attacks[newSize];
+        System.arraycopy(this.attacks, 0, newAttacks, 0, this.attacks.length);
+        newAttacks[this.attacks.length] = newAttack;
+
+        this.attacks = newAttacks;
     }
 
     public void clearWeaponAttacks() {
